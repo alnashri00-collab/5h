@@ -370,7 +370,178 @@
             box-shadow: 0 8px 25px rgba(253, 187, 45, 0.15);
         }
 
+        .progress-navigation {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.95) 100%);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 20px 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            z-index: 1000;
+            display: none;
+            min-width: 400px;
+            max-width: 90vw;
+        }
+
+        .progress-navigation.show {
+            display: block;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        .progress-header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .progress-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .lesson-counter {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .progress-bar-container {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 15px;
+            height: 8px;
+            margin: 15px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            border-radius: 15px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
+            animation: shimmer 2s ease-in-out infinite;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            min-width: 120px;
+            justify-content: center;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-button:disabled {
+            background: linear-gradient(135deg, #cbd5e0 0%, #a0aec0 100%);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .nav-button:disabled:hover {
+            transform: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .close-lesson-btn {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+        }
+
+        .close-lesson-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
         @media (max-width: 768px) {
+            .progress-navigation {
+                bottom: 10px;
+                padding: 15px 20px;
+                min-width: 350px;
+            }
+
+            .navigation-buttons {
+                gap: 10px;
+            }
+
+            .nav-button {
+                padding: 10px 15px;
+                font-size: 0.8rem;
+                min-width: 100px;
+            }
+
+            .progress-title {
+                font-size: 1rem;
+            }
+
+            .lesson-counter {
+                font-size: 0.8rem;
+            }
+
+            .close-lesson-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
             .container {
                 padding: 15px;
             }
@@ -560,6 +731,21 @@
     </div>
    </section>
    <div class="current-lesson" id="lesson-content" style="display: none;"><!-- محتوى الدرس سيظهر هنا عند النقر على أي درس -->
+   </div><!-- شريط التقدم والتنقل -->
+   <div class="progress-navigation" id="progress-navigation">
+    <div class="progress-header">
+     <div class="progress-title" id="current-lesson-title">
+      الدرس الأول: مقدمة في الحاسب
+     </div>
+     <div class="lesson-counter" id="lesson-counter">
+      الدرس 1 من 7
+     </div>
+    </div>
+    <div class="progress-bar-container">
+     <div class="progress-bar" id="progress-bar" style="width: 14.3%;"></div>
+    </div>
+    <div class="navigation-buttons"><button class="nav-button" id="prev-lesson" onclick="previousLesson()"> <span>⏮️</span> <span>السابق</span> </button> <button class="close-lesson-btn" onclick="closeLessonView()"> <span>✖️ إغلاق</span> </button> <button class="nav-button" id="next-lesson" onclick="nextLesson()"> <span>التالي</span> <span>⏭️</span> </button>
+    </div>
    </div>
   </div>
   <script>
@@ -572,6 +758,25 @@
             font_family: "Segoe UI",
             font_size: 16
         };
+
+        // متغيرات التنقل
+        let currentLessonIndex = 0;
+        const totalLessons = 7;
+        
+        const lessonTitles = [
+            "الدرس الأول: مقدمة في الحاسب",
+            "الدرس الثاني: مكونات الحاسب", 
+            "الدرس الثالث: الملفات والمجلدات",
+            "الدرس الرابع: إدراج الصور في الوورد",
+            "الدرس الخامس: التنسيق المتقدم",
+            "الدرس السادس: إدراج الرسومات التوضيحية",
+            "الدرس السابع: التدقيق والطباعة"
+        ];
+
+        const lessonFunctions = [
+            showLesson1, showLesson2, showLesson3, 
+            showLesson4, showLesson5, showLesson6, showLesson7
+        ];
 
         async function render(config) {
             const titleElement = document.getElementById('course-title');
@@ -651,8 +856,68 @@
             ]);
         }
 
+        // وظائف التحكم بالتنقل
+        function updateProgressNavigation() {
+            const progressNav = document.getElementById('progress-navigation');
+            const progressBar = document.getElementById('progress-bar');
+            const lessonTitleElement = document.getElementById('current-lesson-title');
+            const lessonCounterElement = document.getElementById('lesson-counter');
+            const prevButton = document.getElementById('prev-lesson');
+            const nextButton = document.getElementById('next-lesson');
+
+            // تحديث شريط التقدم
+            const progressPercentage = ((currentLessonIndex + 1) / totalLessons) * 100;
+            progressBar.style.width = progressPercentage + '%';
+
+            // تحديث عنوان الدرس
+            lessonTitleElement.textContent = lessonTitles[currentLessonIndex];
+            lessonCounterElement.textContent = `الدرس ${currentLessonIndex + 1} من ${totalLessons}`;
+
+            // تحديث حالة الأزرار
+            prevButton.disabled = currentLessonIndex === 0;
+            nextButton.disabled = currentLessonIndex === totalLessons - 1;
+
+            // إظهار شريط التنقل
+            progressNav.classList.add('show');
+
+            // التمرير إلى محتوى الدرس
+            document.getElementById('lesson-content').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+
+        function previousLesson() {
+            if (currentLessonIndex > 0) {
+                currentLessonIndex--;
+                lessonFunctions[currentLessonIndex]();
+                updateProgressNavigation();
+            }
+        }
+
+        function nextLesson() {
+            if (currentLessonIndex < totalLessons - 1) {
+                currentLessonIndex++;
+                lessonFunctions[currentLessonIndex]();
+                updateProgressNavigation();
+            }
+        }
+
+        function closeLessonView() {
+            document.getElementById('lesson-content').style.display = 'none';
+            document.getElementById('progress-navigation').classList.remove('show');
+            
+            // التمرير إلى أعلى الصفحة
+            document.querySelector('.main-header').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+
         function showLesson1() {
+            currentLessonIndex = 0;
             document.getElementById('lesson-content').style.display = 'block';
+            updateProgressNavigation();
             document.getElementById('lesson-content').innerHTML = `
                 <h2 class="current-lesson-title">الدرس الأول: مقدمة في الحاسب</h2>
 
@@ -780,7 +1045,9 @@
         }
 
         function showLesson2() {
+            currentLessonIndex = 1;
             document.getElementById('lesson-content').style.display = 'block';
+            updateProgressNavigation();
             document.getElementById('lesson-content').innerHTML = `
                 <h2 class="current-lesson-title">الدرس الثاني: مكونات الحاسب</h2>
 
@@ -837,7 +1104,9 @@
         }
 
         function showLesson3() {
+            currentLessonIndex = 2;
             document.getElementById('lesson-content').style.display = 'block';
+            updateProgressNavigation();
             document.getElementById('lesson-content').innerHTML = `
                 <h2 class="current-lesson-title">الدرس الثالث: الملفات والمجلدات</h2>
 
@@ -855,7 +1124,9 @@
         }
 
         function showLesson4() {
+            currentLessonIndex = 3;
             document.getElementById('lesson-content').style.display = 'block';
+            updateProgressNavigation();
             document.getElementById('lesson-content').innerHTML = `
                 <h2 class="current-lesson-title">الدرس الرابع: إدراج الصور في الوورد</h2>
 
@@ -870,7 +1141,9 @@
         }
 
         function showLesson5() {
+            currentLessonIndex = 4;
             document.getElementById('lesson-content').style.display = 'block';
+            updateProgressNavigation();
             document.getElementById('lesson-content').innerHTML = `
                 <h2 class="current-lesson-title">الدرس الخامس: التنسيق المتقدم</h2>
 
@@ -885,7 +1158,9 @@
         }
 
         function showLesson6() {
+            currentLessonIndex = 5;
             document.getElementById('lesson-content').style.display = 'block';
+            updateProgressNavigation();
             document.getElementById('lesson-content').innerHTML = `
                 <h2 class="current-lesson-title">الدرس السادس: إدراج الرسومات التوضيحية</h2>
 
@@ -900,7 +1175,9 @@
         }
 
         function showLesson7() {
+            currentLessonIndex = 6;
             document.getElementById('lesson-content').style.display = 'block';
+            updateProgressNavigation();
             document.getElementById('lesson-content').innerHTML = `
                 <h2 class="current-lesson-title">الدرس السابع: التدقيق والطباعة</h2>
 
@@ -1108,5 +1385,5 @@
             });
         }
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99074b4885ccf445',t:'MTc2MDc4MjczMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99075f0720338bd4',t:'MTc2MDc4MzU0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
