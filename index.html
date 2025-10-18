@@ -25,12 +25,30 @@
             overflow: hidden;
         }
         
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            .main-container {
+                margin: 10px;
+                border-radius: 16px;
+            }
+        }
+        
         .header-gradient {
             background: linear-gradient(135deg, #1e40af 0%, #7c2d12 100%);
             padding: 40px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            .header-gradient {
+                padding: 30px 15px;
+            }
         }
         
         .lessons-nav {
@@ -41,6 +59,12 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .lessons-nav {
+                padding: 15px;
+            }
         }
         
         .lesson-nav-item {
@@ -54,6 +78,14 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             position: relative;
             overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            .lesson-nav-item {
+                padding: 12px 16px;
+                margin: 6px 0;
+                border-radius: 12px;
+            }
         }
         
         .lesson-nav-item::before {
@@ -113,6 +145,14 @@
             padding: 40px;
             border: 3px solid #e2e8f0;
             display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .lesson-detail {
+                margin: 20px 0;
+                padding: 20px;
+                border-radius: 16px;
+            }
         }
         
         .lesson-detail.active {
@@ -369,6 +409,19 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
+        @media (max-width: 768px) {
+            .lesson-navigation-buttons {
+                bottom: 20px;
+                left: 10px;
+                right: 10px;
+                transform: none;
+                width: auto;
+                gap: 10px;
+                padding: 12px 15px;
+                border-radius: 16px;
+            }
+        }
+        
         .lesson-nav-btn {
             display: flex;
             align-items: center;
@@ -384,6 +437,16 @@
             position: relative;
             overflow: hidden;
             min-width: 140px;
+        }
+        
+        @media (max-width: 768px) {
+            .lesson-nav-btn {
+                flex: 1;
+                min-width: auto;
+                padding: 10px 16px;
+                gap: 8px;
+                border-radius: 12px;
+            }
         }
         
         .lesson-nav-btn::before {
@@ -450,6 +513,45 @@
             font-weight: 600;
             line-height: 1.2;
         }
+        
+        /* Additional mobile optimizations */
+        @media (max-width: 768px) {
+            .section-card {
+                padding: 16px !important;
+                margin-bottom: 16px;
+            }
+            
+            .interactive-item {
+                padding: 12px !important;
+            }
+            
+            .grid.grid-cols-1.md\\:grid-cols-2 {
+                grid-template-columns: 1fr !important;
+                gap: 12px !important;
+            }
+            
+            .floating-icon {
+                font-size: 3rem !important;
+            }
+            
+            .number-badge {
+                width: 24px;
+                height: 24px;
+                font-size: 11px;
+            }
+            
+            .nav-text {
+                font-size: 12px;
+            }
+            
+            .nav-label {
+                font-size: 10px;
+            }
+            
+            .nav-lesson {
+                font-size: 12px;
+            }
+        }
     </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
@@ -457,15 +559,15 @@
  <body class="min-h-full">
   <div class="main-container max-w-7xl mx-auto"><!-- Header -->
    <div class="header-gradient">
-    <h1 class="text-6xl font-bold text-white mb-4 relative z-10" style="font-family: 'Cairo', sans-serif; font-size: 3.5rem;">المهارات الرقمية</h1>
-    <div class="text-3xl font-semibold text-white mb-3 relative z-10" style="font-family: 'Cairo', sans-serif; font-size: 1.8rem;">
+    <h1 class="text-6xl md:text-6xl font-bold text-white mb-4 relative z-10" style="font-family: 'Cairo', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem);">المهارات الرقمية</h1>
+    <div class="text-3xl md:text-3xl font-semibold text-white mb-3 relative z-10" style="font-family: 'Cairo', sans-serif; font-size: clamp(1rem, 3vw, 1.8rem);">
      الصف الخامس الابتدائي - الفصل الدراسي الأول
     </div>
-    <div class="text-2xl text-white mb-2 relative z-10" style="font-family: 'Cairo', sans-serif; font-size: 1.4rem;">
+    <div class="text-2xl md:text-2xl text-white mb-2 relative z-10" style="font-family: 'Cairo', sans-serif; font-size: clamp(0.9rem, 2.5vw, 1.4rem);">
      معلم المادة: محمد الناشري
     </div>
-    <h2 class="text-3xl font-semibold text-white mb-4 relative z-10" style="font-family: 'Cairo', sans-serif; font-size: 1.6rem;">مدرسة الإمام أبي حنيفة</h2>
-    <p class="text-xl text-white opacity-90 relative z-10" style="font-family: 'Tajawal', sans-serif; font-size: 1.2rem;">تعلم أساسيات الحاسب الآلي بطريقة تفاعلية وممتعة</p>
+    <h2 class="text-3xl md:text-3xl font-semibold text-white mb-4 relative z-10" style="font-family: 'Cairo', sans-serif; font-size: clamp(1rem, 3vw, 1.6rem);">مدرسة الإمام أبي حنيفة</h2>
+    <p class="text-xl md:text-xl text-white opacity-90 relative z-10" style="font-family: 'Tajawal', sans-serif; font-size: clamp(0.9rem, 2.5vw, 1.2rem);">تعلم أساسيات الحاسب الآلي بطريقة تفاعلية وممتعة</p>
    </div><!-- Lessons Navigation -->
    <div class="lessons-nav">
     <h3 class="text-2xl font-bold text-center mb-6 text-gray-800" style="font-family: 'Cairo', sans-serif;">📚 قائمة الدروس</h3><!-- Progress Bar -->
@@ -476,12 +578,12 @@
      <div class="text-center"><span class="text-sm text-gray-600">التقدم الإجمالي: </span> <span id="progressText" class="font-semibold text-blue-600 text-lg">0%</span>
      </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
      <div class="lesson-nav-item" onclick="showLesson(1)" id="nav-lesson-1">
       <div class="flex items-center justify-between">
        <div>
         <h4 class="font-bold text-gray-800 text-lg">الدرس الأول</h4>
-        <p class="text-sm text-gray-600">مقدمة في الحاسب الآلي</p>
+        <p class="text-sm text-gray-600">أجهزة الحاسب</p>
        </div>
        <div class="text-2xl">
         💻
@@ -494,7 +596,7 @@
       <div class="flex items-center justify-between">
        <div>
         <h4 class="font-bold text-gray-800 text-lg">الدرس الثاني</h4>
-        <p class="text-sm text-gray-600">مكونات الحاسب</p>
+        <p class="text-sm text-gray-600">أجزاء الحاسب</p>
        </div>
        <div class="text-2xl">
         🔧
@@ -570,90 +672,129 @@
      </div>
     </div>
    </div>
-   <div class="px-6 py-8"><!-- Lesson Details --> <!-- Lesson 1 Detail -->
+   <div class="px-6 py-8 md:px-6 px-4"><!-- Lesson Details --> <!-- Lesson 1 Detail -->
     <div class="lesson-detail" id="lesson-detail-1">
      <div class="lesson-header-1 rounded-xl p-6 mb-6 text-center">
       <div class="floating-icon text-6xl mb-4">
        💻
       </div>
       <h3 class="text-4xl font-bold mb-2" style="font-family: 'Cairo', sans-serif;">الدرس الأول</h3>
-      <h4 class="text-2xl font-semibold mb-3" style="font-family: 'Cairo', sans-serif;">مقدمة في الحاسب الآلي</h4>
-      <p class="text-lg opacity-90" style="font-family: 'Tajawal', sans-serif;">تعرف على تعريف الحاسب وأنواعه المختلفة</p>
+      <h4 class="text-2xl font-semibold mb-3" style="font-family: 'Cairo', sans-serif;">أجهزة الحاسب</h4>
+      <p class="text-lg opacity-90" style="font-family: 'Tajawal', sans-serif;">تعرف على تعريف الحاسب وأنواعه وأدواته التفاعلية</p>
       <div class="mt-4"><span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">3 أقسام</span> <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm mr-2" id="lesson1-status">غير مكتمل</span>
       </div>
-     </div><!-- القسم الأول -->
+     </div><!-- القسم الأول: تعريف الحاسب -->
      <div class="section-card p-6 rounded-lg mb-6">
-      <h5 class="font-bold text-gray-800 mb-4 flex items-center text-xl"><span class="number-badge">1</span> تعريف الحاسب الآلي</h5>
+      <h5 class="font-bold text-gray-800 mb-4 flex items-center text-xl"><span class="number-badge">1</span> تعريف الحاسب</h5>
       <div class="text-gray-700 space-y-3 text-lg">
-       <p><strong>التعريف:</strong> آلة إلكترونية تستقبل البيانات وتعالجها وتخرج النتائج</p>
-       <p><strong>الوظائف الأساسية:</strong></p>
-       <ul class="list-disc list-inside mr-6 space-y-2">
-        <li>استقبال البيانات (الإدخال)</li>
-        <li>معالجة البيانات</li>
-        <li>إخراج النتائج</li>
-        <li>تخزين المعلومات</li>
-       </ul>
+       <p class="text-xl font-semibold text-blue-700">الحاسب جهاز إلكتروني يتبع تعليمات محددة ويتخذ القرارات</p>
       </div>
-     </div><!-- القسم الثاني -->
+     </div><!-- القسم الثاني: أنواع الحاسب -->
      <div class="section-card p-6 rounded-lg mb-6">
-      <h5 class="font-bold text-gray-800 mb-4 flex items-center text-xl"><span class="number-badge">2</span> أنواع الحاسبات</h5>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-       <div class="bg-white p-4 rounded-lg border-r-4 border-green-500 shadow-sm">
-        <h6 class="font-semibold text-green-700 text-lg">الحاسب الشخصي (PC)</h6>
-        <p class="text-gray-600">للاستخدام الفردي في المنزل والمكتب</p>
-       </div>
-       <div class="bg-white p-4 rounded-lg border-r-4 border-blue-500 shadow-sm">
-        <h6 class="font-semibold text-blue-700 text-lg">الحاسب المحمول (Laptop)</h6>
-        <p class="text-gray-600">قابل للحمل، يعمل بالبطارية</p>
-       </div>
-       <div class="bg-white p-4 rounded-lg border-r-4 border-purple-500 shadow-sm">
-        <h6 class="font-semibold text-purple-700 text-lg">الحاسب اللوحي (Tablet)</h6>
-        <p class="text-gray-600">شاشة لمس، خفيف الوزن</p>
-       </div>
-       <div class="bg-white p-4 rounded-lg border-r-4 border-red-500 shadow-sm">
-        <h6 class="font-semibold text-red-700 text-lg">الهاتف الذكي (Smartphone)</h6>
-        <p class="text-gray-600">حاسب صغير مع إمكانيات الاتصال</p>
-       </div>
-       <div class="bg-white p-4 rounded-lg border-r-4 border-yellow-500 shadow-sm">
-        <h6 class="font-semibold text-yellow-700 text-lg">الحاسب الخادم (Server)</h6>
-        <p class="text-gray-600">يخدم عدة مستخدمين في الشبكة</p>
+      <h5 class="font-bold text-gray-800 mb-4 flex items-center text-xl"><span class="number-badge">2</span> أنواع الحاسب (5 أنواع)</h5>
+      <div class="space-y-4"><!-- الحاسبات المكتبية -->
+       <div class="bg-white p-5 rounded-lg border-r-4 border-blue-500 shadow-sm">
+        <h6 class="font-semibold text-blue-700 text-lg mb-3">🖥️ الحاسبات المكتبية</h6>
+        <p class="text-gray-600 mb-2">للمكتب والمدرسة</p>
+        <p class="text-gray-700 font-medium">5 أجزاء: الشاشة، لوحة المفاتيح، الفأرة، وحدة النظام، مكبر الصوت</p>
+       </div><!-- الحاسب المحمول -->
+       <div class="bg-white p-5 rounded-lg border-r-4 border-green-500 shadow-sm">
+        <h6 class="font-semibold text-green-700 text-lg mb-3">💻 الحاسب المحمول</h6>
+        <ul class="text-gray-600 space-y-1">
+         <li>• قوة الحاسبات المكتبية</li>
+         <li>• خفيف الوزن</li>
+         <li>• بطارية داخلية</li>
+         <li>• استخدام في أي مكان</li>
+        </ul>
+       </div><!-- الحاسبات اللوحية -->
+       <div class="bg-white p-5 rounded-lg border-r-4 border-purple-500 shadow-sm">
+        <h6 class="font-semibold text-purple-700 text-lg mb-3">📱 الحاسبات اللوحية</h6>
+        <ul class="text-gray-600 space-y-1">
+         <li>• أحدث الأنواع</li>
+         <li>• بدون لوحة مفاتيح</li>
+         <li>• إدخال باللمس</li>
+         <li>• بحجم الكتاب</li>
+        </ul>
+       </div><!-- الهواتف الذكية -->
+       <div class="bg-white p-5 rounded-lg border-r-4 border-red-500 shadow-sm">
+        <h6 class="font-semibold text-red-700 text-lg mb-3">📞 الهواتف الذكية</h6>
+        <p class="text-gray-600 mb-2">حاسب مصغر</p>
+        <p class="text-gray-700 font-medium">5 استخدامات: اتصال، تصفح، رسائل، دردشة، ألعاب</p>
+       </div><!-- مشغلات ألعاب الفيديو -->
+       <div class="bg-white p-5 rounded-lg border-r-4 border-orange-500 shadow-sm">
+        <h6 class="font-semibold text-orange-700 text-lg mb-3">🎮 مشغلات ألعاب الفيديو</h6>
+        <ul class="text-gray-600 space-y-1">
+         <li>• ألعاب فردية وجماعية</li>
+         <li>• تصفح المواقع</li>
+        </ul>
        </div>
       </div>
-     </div><!-- القسم الثالث -->
+     </div><!-- القسم الثالث: أدوات الحاسب التفاعلية -->
      <div class="section-card p-6 rounded-lg mb-6">
-      <h5 class="font-bold text-gray-800 mb-4 flex items-center text-xl"><span class="number-badge">3</span> الأدوات التفاعلية</h5>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+      <h5 class="font-bold text-gray-800 mb-4 flex items-center text-xl"><span class="number-badge">3</span> أدوات الحاسب التفاعلية (8 أدوات)</h5>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4"><!-- لوحة اللمس -->
        <div class="interactive-item p-4 rounded-lg">
-        <h6 class="font-semibold text-lg">🖱️ الفأرة</h6>
-        <p class="text-sm">للإشارة والنقر والتحديد</p>
-       </div>
+        <h6 class="font-semibold text-lg mb-2">👆 لوحة اللمس</h6>
+        <ul class="text-sm space-y-1">
+         <li>• بديل الفأرة</li>
+         <li>• سطح خاص للتعرف على الإصبع</li>
+         <li>• في الحاسبات المحمولة</li>
+        </ul>
+       </div><!-- شاشة اللمس -->
        <div class="interactive-item p-4 rounded-lg">
-        <h6 class="font-semibold text-lg">⌨️ لوحة المفاتيح</h6>
-        <p class="text-sm">لإدخال النصوص والأوامر</p>
-       </div>
+        <h6 class="font-semibold text-lg mb-2">📱 شاشة اللمس</h6>
+        <ul class="text-sm space-y-1">
+         <li>• بدون لوحة مفاتيح أو فأرة</li>
+         <li>• تعمل باللمس المباشر</li>
+        </ul>
+       </div><!-- لوح الرسم -->
        <div class="interactive-item p-4 rounded-lg">
-        <h6 class="font-semibold text-lg">🖥️ الشاشة</h6>
-        <p class="text-sm">لعرض المعلومات والنتائج</p>
-       </div>
+        <h6 class="font-semibold text-lg mb-2">🎨 لوح الرسم (المحول الرقمي)</h6>
+        <ul class="text-sm space-y-1">
+         <li>• رسم يدوي كالورقة والقلم</li>
+         <li>• للمصممين والرسامين</li>
+        </ul>
+       </div><!-- كرة التتبع -->
        <div class="interactive-item p-4 rounded-lg">
-        <h6 class="font-semibold text-lg">🔊 مكبرات الصوت</h6>
-        <p class="text-sm">لإخراج الأصوات والموسيقى</p>
-       </div>
+        <h6 class="font-semibold text-lg mb-2">⚪ كرة التتبع</h6>
+        <ul class="text-sm space-y-1">
+         <li>• فأرة مقلوبة</li>
+         <li>• كرة كبيرة</li>
+         <li>• لتحريك المؤشر</li>
+        </ul>
+       </div><!-- لوحة الألعاب -->
        <div class="interactive-item p-4 rounded-lg">
-        <h6 class="font-semibold text-lg">🎤 الميكروفون</h6>
-        <p class="text-sm">لإدخال الأصوات والتسجيل</p>
-       </div>
+        <h6 class="font-semibold text-lg mb-2">🎮 لوحة الألعاب</h6>
+        <ul class="text-sm space-y-1">
+         <li>• للتحكم بالألعاب</li>
+         <li>• أشكال مختلفة</li>
+         <li>• عصا تحكم أو عجلة قيادة</li>
+        </ul>
+       </div><!-- نينتندو وي -->
        <div class="interactive-item p-4 rounded-lg">
-        <h6 class="font-semibold text-lg">📷 الكاميرا</h6>
-        <p class="text-sm">لالتقاط الصور ومكالمات الفيديو</p>
-       </div>
+        <h6 class="font-semibold text-lg mb-2">🎯 نينتندو وي</h6>
+        <ul class="text-sm space-y-1">
+         <li>• ثورة في عالم الألعاب</li>
+         <li>• تجربة واقعية</li>
+         <li>• إدراك الحركة لجميع الاتجاهات</li>
+        </ul>
+       </div><!-- نظارات الواقع الافتراضي -->
        <div class="interactive-item p-4 rounded-lg">
-        <h6 class="font-semibold text-lg">🖨️ الطابعة</h6>
-        <p class="text-sm">لطباعة المستندات والصور</p>
-       </div>
+        <h6 class="font-semibold text-lg mb-2">🥽 نظارات الواقع الافتراضي</h6>
+        <ul class="text-sm space-y-1">
+         <li>• محاكاة للواقع الحقيقي</li>
+         <li>• انطباع بعالم مختلف</li>
+         <li>• أزرار وأدوات تحكم</li>
+        </ul>
+       </div><!-- قفازات الواقع الافتراضي -->
        <div class="interactive-item p-4 rounded-lg">
-        <h6 class="font-semibold text-lg">💾 وحدات التخزين</h6>
-        <p class="text-sm">لحفظ الملفات والبرامج</p>
+        <h6 class="font-semibold text-lg mb-2">🧤 قفازات الواقع الافتراضي</h6>
+        <ul class="text-sm space-y-1">
+         <li>• كالقفازات العادية</li>
+         <li>• استجابة سريعة ودقيقة</li>
+         <li>• نقل حركات اليد</li>
+         <li>• استشعار باللمس</li>
+        </ul>
        </div>
       </div>
      </div>
@@ -666,7 +807,7 @@
        🔧
       </div>
       <h3 class="text-4xl font-bold mb-2" style="font-family: 'Cairo', sans-serif;">الدرس الثاني</h3>
-      <h4 class="text-2xl font-semibold mb-3" style="font-family: 'Cairo', sans-serif;">مكونات الحاسب</h4>
+      <h4 class="text-2xl font-semibold mb-3" style="font-family: 'Cairo', sans-serif;">أجزاء الحاسب</h4>
       <p class="text-lg opacity-90" style="font-family: 'Tajawal', sans-serif;">تعرف على الأجزاء الداخلية والخارجية للحاسب</p>
       <div class="mt-4"><span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">4 أقسام</span> <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm mr-2" id="lesson2-status">غير مكتمل</span>
       </div>
@@ -1096,8 +1237,8 @@
         let currentLesson = null;
 
         const lessonTitles = {
-            1: "مقدمة في الحاسب الآلي",
-            2: "مكونات الحاسب",
+            1: "أجهزة الحاسب",
+            2: "أجزاء الحاسب",
             3: "الملفات والمجلدات",
             4: "إدراج الصور في الوورد",
             5: "التنسيق المتقدم",
@@ -1354,6 +1495,6 @@
 
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', init);
-      </script> 
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'990859dd164097d8',t:'MTc2MDc5MzgxNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99091946a149f445',t:'MTc2MDgwMTY1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+      </html>
