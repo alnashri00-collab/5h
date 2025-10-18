@@ -279,50 +279,6 @@
             100% { transform: translateX(100%); }
         }
         
-        .quiz-option {
-            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .quiz-option::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.5s ease;
-        }
-        
-        .quiz-option:hover::before {
-            transform: translateX(100%);
-        }
-        
-        .quiz-option:hover {
-            transform: translateX(8px) scale(1.02);
-            border-color: #667eea;
-            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
-        }
-        
-        .quiz-option.correct {
-            background: linear-gradient(145deg, #dcfce7 0%, #bbf7d0 100%);
-            border-color: #16a34a;
-            box-shadow: 0 8px 24px rgba(22, 163, 74, 0.2);
-        }
-        
-        .quiz-option.incorrect {
-            background: linear-gradient(145deg, #fef2f2 0%, #fecaca 100%);
-            border-color: #dc2626;
-            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.2);
-        }
-        
         .floating-icon {
             animation: float 3s ease-in-out infinite;
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
@@ -367,37 +323,6 @@
             box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
         }
         
-        .certificate-card {
-            background: linear-gradient(145deg, #fbbf24 0%, #f59e0b 100%);
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(251, 191, 36, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .certificate-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-        }
-        
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-        }
-        
         .number-badge {
             background: linear-gradient(145deg, #1e40af 0%, #7c3aed 100%);
             color: white;
@@ -428,95 +353,102 @@
             box-shadow: 0 4px 16px rgba(102, 126, 234, 0.15);
         }
         
-        .back-to-top {
+        .lesson-navigation-buttons {
             position: fixed;
             bottom: 30px;
-            left: 30px;
-            width: 60px;
-            height: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 15px 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .lesson-nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             background: linear-gradient(145deg, #1e40af 0%, #7c3aed 100%);
             color: white;
             border: none;
-            border-radius: 50%;
+            border-radius: 16px;
+            padding: 12px 20px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 8px 24px rgba(30, 64, 175, 0.4);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
+            box-shadow: 0 4px 16px rgba(30, 64, 175, 0.3);
+            position: relative;
+            overflow: hidden;
+            min-width: 140px;
         }
         
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+        .lesson-nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
         }
         
-        .back-to-top:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 12px 32px rgba(30, 64, 175, 0.6);
+        .lesson-nav-btn:hover::before {
+            transform: translateX(100%);
         }
         
-        .back-to-top:active {
-            transform: translateY(-2px) scale(1.05);
+        .lesson-nav-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 24px rgba(30, 64, 175, 0.4);
         }
         
-        .navigation-buttons {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
+        .lesson-nav-btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+        
+        .lesson-nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .lesson-nav-btn:disabled:hover {
+            transform: none;
+            box-shadow: 0 4px 16px rgba(30, 64, 175, 0.3);
+        }
+        
+        .nav-arrow {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .nav-text {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            z-index: 1000;
+            align-items: flex-start;
+            text-align: right;
         }
         
-        .nav-button {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(145deg, #1e40af 0%, #7c3aed 100%);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 8px 24px rgba(30, 64, 175, 0.4);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
+        .next-btn .nav-text {
+            align-items: flex-end;
+            text-align: left;
         }
         
-        .nav-button.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+        .nav-label {
+            font-size: 12px;
+            opacity: 0.8;
+            font-weight: 500;
         }
         
-        .nav-button:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 12px 32px rgba(30, 64, 175, 0.6);
-        }
-        
-        .nav-button:active {
-            transform: translateY(-2px) scale(1.05);
-        }
-        
-        .home-button {
-            background: linear-gradient(145deg, #059669 0%, #047857 100%);
-            box-shadow: 0 8px 24px rgba(5, 150, 105, 0.4);
-        }
-        
-        .home-button:hover {
-            box-shadow: 0 12px 32px rgba(5, 150, 105, 0.6);
+        .nav-lesson {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.2;
         }
     </style>
   <style>@view-transition { navigation: auto; }</style>
@@ -1142,488 +1074,36 @@
      <div class="text-center mt-8"><button onclick="completeLesson(7)" class="modern-button px-8 py-3 text-lg"> إكمال الدرس ✓ </button>
      </div>
     </div>
-   </div><!-- Navigation Buttons -->
-   <div class="navigation-buttons"><button class="nav-button home-button visible" onclick="goToHome()" title="العودة للقائمة الرئيسية"> 🏠 </button> <button class="nav-button visible" onclick="scrollToTop()" title="العودة للأعلى"> ↑ </button>
+   </div><!-- Lesson Navigation Buttons -->
+   <div class="lesson-navigation-buttons" id="lessonNavButtons" style="display: none;"><button class="lesson-nav-btn prev-btn" onclick="goToPreviousLesson()" id="prevLessonBtn"> <span class="nav-arrow">←</span>
+     <div class="nav-text">
+      <div class="nav-label">
+       السابق
+      </div>
+      <div class="nav-lesson" id="prevLessonTitle"></div>
+     </div></button> <button class="lesson-nav-btn next-btn" onclick="goToNextLesson()" id="nextLessonBtn">
+     <div class="nav-text">
+      <div class="nav-label">
+       التالي
+      </div>
+      <div class="nav-lesson" id="nextLessonTitle"></div>
+     </div><span class="nav-arrow">→</span> </button>
    </div>
-   <div class="floating-icon text-4xl">
-    🔧
-   </div>
-  </div>
-  <h4 class="text-xl font-semibold mb-2" style="font-family: 'Cairo', sans-serif; font-size: 1.3rem;">مكونات الحاسب</h4>
-  <p class="text-base mb-4 opacity-90" style="font-family: 'Tajawal', sans-serif; font-size: 1.1rem;">تعرف على الأجزاء الداخلية والخارجية للحاسب</p>
-  <div class="flex justify-between items-center"><span class="text-xs bg-white bg-opacity-20 px-2 py-1 rounded-full">4 أقسام</span> <span class="text-xs opacity-75" id="lesson2-status">غير مكتمل</span>
-  </div>
-  <div class="lesson-content mt-6" id="lesson2-content"><!-- القسم الأول -->
-   <div class="section-card p-4 rounded-lg mb-4">
-    <h5 class="font-bold text-gray-800 mb-3 flex items-center"><span class="number-badge">1</span> أجزاء الحاسب الرئيسة (6 أجزاء)</h5>
-    <div class="space-y-3">
-     <div class="bg-white p-3 rounded border-r-4 border-red-500">
-      <h6 class="font-semibold text-red-700">اللوحة الأم</h6>
-      <p class="text-sm text-gray-600">المركز الرئيس، تربط جميع الأجزاء</p>
-     </div>
-     <div class="bg-white p-3 rounded border-r-4 border-blue-500">
-      <h6 class="font-semibold text-blue-700">وحدة المعالجة المركزية</h6>
-      <p class="text-sm text-gray-600">عقل الحاسب، كلما زادت سرعته كان أسرع</p>
-     </div>
-     <div class="bg-white p-3 rounded border-r-4 border-green-500">
-      <h6 class="font-semibold text-green-700">ذاكرة الوصول العشوائي</h6>
-      <p class="text-sm text-gray-600">تخزين مؤقت، كلما زادت زادت السرعة</p>
-     </div>
-     <div class="bg-white p-3 rounded border-r-4 border-purple-500">
-      <h6 class="font-semibold text-purple-700">القرص الصلب</h6>
-      <p class="text-sm text-gray-600">التخزين الدائم للبرامج والملفات</p>
-     </div>
-     <div class="bg-white p-3 rounded border-r-4 border-yellow-500">
-      <h6 class="font-semibold text-yellow-700">مزود الطاقة</h6>
-      <p class="text-sm text-gray-600">يزود الحاسب بالكهرباء</p>
-     </div>
-     <div class="bg-white p-3 rounded border-r-4 border-indigo-500">
-      <h6 class="font-semibold text-indigo-700">محرك الأقراص</h6>
-      <p class="text-sm text-gray-600">لقراءة CD وDVD</p>
-     </div>
-    </div>
-   </div><!-- القسم الثاني -->
-   <div class="section-card p-4 rounded-lg mb-4">
-    <h5 class="font-bold text-gray-800 mb-3 flex items-center"><span class="number-badge">2</span> أجهزة التخزين الخارجية (4 أنواع)</h5>
-    <div class="space-y-3">
-     <div class="bg-white p-3 rounded border-r-4 border-orange-500">
-      <h6 class="font-semibold text-orange-700">الذاكرة الفلاشية</h6>
-      <p class="text-sm text-gray-600">الأكثر شيوعاً، رخيصة، صغيرة، سهلة</p>
-     </div>
-     <div class="bg-white p-3 rounded border-r-4 border-cyan-500">
-      <h6 class="font-semibold text-cyan-700">الأقراص المضغوطة وأقراص الفيديو</h6>
-      <p class="text-sm text-gray-600">تحتاج حماية من الخدش</p>
-     </div>
-     <div class="bg-white p-3 rounded border-r-4 border-teal-500">
-      <h6 class="font-semibold text-teal-700">القرص الصلب الخارجي</h6>
-      <p class="text-sm text-gray-600">سعة تخزين كبيرة جداً</p>
-     </div>
-     <div class="bg-white p-3 rounded border-r-4 border-pink-500">
-      <h6 class="font-semibold text-pink-700">بطاقة الذاكرة</h6>
-      <p class="text-sm text-gray-600">صغيرة، للهواتف والكاميرات</p>
-     </div>
-    </div>
-   </div><!-- القسم الثالث -->
-   <div class="section-card p-4 rounded-lg mb-4">
-    <h5 class="font-bold text-gray-800 mb-3 flex items-center"><span class="number-badge">3</span> أجهزة الإدخال (7 أجهزة)</h5>
-    <div class="space-y-2">
-     <div class="bg-white p-2 rounded border-r-3 border-blue-400">
-      <h6 class="font-semibold text-sm">⌨️ لوحة المفاتيح - الأهم، لإدخال النصوص والأوامر</h6>
-     </div>
-     <div class="bg-white p-2 rounded border-r-3 border-green-400">
-      <h6 class="font-semibold text-sm">🖱️ الفأرة - الإشارة والنقر، لها زران رئيسيان</h6>
-     </div>
-     <div class="bg-white p-2 rounded border-r-3 border-red-400">
-      <h6 class="font-semibold text-sm">🎤 الميكروفون - إدخال الصوت، مدمج بالهواتف</h6>
-     </div>
-     <div class="bg-white p-2 rounded border-r-3 border-purple-400">
-      <h6 class="font-semibold text-sm">🖨️ الماسح الضوئي - نقل الصور للحاسب</h6>
-     </div>
-     <div class="bg-white p-2 rounded border-r-3 border-yellow-400">
-      <h6 class="font-semibold text-sm">📹 كاميرا ويب - مكالمات الفيديو، بها ميكروفون مدمج</h6>
-     </div>
-     <div class="bg-white p-2 rounded border-r-3 border-indigo-400">
-      <h6 class="font-semibold text-sm">📷 الكاميرا الرقمية - صور عالية الدقة، نقل بالـUSB أو بطاقة ذاكرة</h6>
-     </div>
-     <div class="bg-white p-2 rounded border-r-3 border-pink-400">
-      <h6 class="font-semibold text-sm">🎥 كاميرا الفيديو - تصوير متحرك، تخزين على أقراص أو بطاقة</h6>
-     </div>
-    </div>
-   </div><!-- القسم الرابع -->
-   <div class="section-card p-4 rounded-lg mb-4">
-    <h5 class="font-bold text-gray-800 mb-3 flex items-center"><span class="number-badge">4</span> أجهزة الإخراج (4 أجهزة)</h5>
-    <div class="space-y-3">
-     <div class="bg-white p-3 rounded border-r-4 border-blue-500">
-      <h6 class="font-semibold text-blue-700">🖥️ الشاشة</h6>
-      <p class="text-sm text-gray-600">جهاز الإخراج الرئيسي</p>
-     </div>
-     <div class="bg-white p-3 rounded border-r-4 border-green-500">
-      <h6 class="font-semibold text-green-700">🔊 مكبرات الصوت</h6>
-      <p class="text-sm text-gray-600">سماع صوت الحاسب</p>
-     </div>
-     <div class="bg-white p-3 rounded border-r-4 border-purple-500">
-      <h6 class="font-semibold text-purple-700">🎧 سماعات الأذن</h6>
-      <p class="text-sm text-gray-600">للحاسب والهاتف وMP3</p>
-     </div>
-     <div class="bg-white p-3 rounded border-r-4 border-orange-500">
-      <h6 class="font-semibold text-orange-700">🖨️ الطابعات (نوعان):</h6>
-      <div class="mr-4 mt-2 space-y-1">
-       <p class="text-sm"><strong>النافثة للحبر:</strong> شائعة، 4 ألوان، رخيصة، بطيئة</p>
-       <p class="text-sm"><strong>الليزر:</strong> ليزرية، سريعة، عالية الجودة، غالية</p>
-      </div>
-     </div>
-    </div>
-   </div><button onclick="completeLesson(2)" class="w-full modern-button"> إكمال الدرس ✓ </button>
-  </div> <!-- Lesson 3 -->
-  <div class="lesson-card lesson-card-3 rounded-xl shadow-lg p-6 cursor-pointer" onclick="toggleLesson(3)">
-   <div class="flex items-center justify-between mb-4">
-    <h3 class="text-2xl font-bold" style="font-family: 'Cairo', sans-serif; font-size: 1.5rem;">الدرس الثالث</h3>
-    <div class="floating-icon text-4xl">
-     📁
-    </div>
-   </div>
-   <h4 class="text-xl font-semibold mb-2" style="font-family: 'Cairo', sans-serif; font-size: 1.3rem;">الملفات والمجلدات</h4>
-   <p class="text-base mb-4 opacity-90" style="font-family: 'Tajawal', sans-serif; font-size: 1.1rem;">إدارة الملفات والمجلدات وعمليات الضغط</p>
-   <div class="flex justify-between items-center"><span class="text-xs bg-white bg-opacity-20 px-2 py-1 rounded-full">10 مواضيع</span> <span class="text-xs opacity-75" id="lesson3-status">غير مكتمل</span>
-   </div>
-   <div class="lesson-content mt-6" id="lesson3-content"><!-- المواضيع العشرة -->
-    <div class="space-y-4">
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="number-badge">1</span> حجم الملف</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>تعريف حجم الملف ووحدة القياس (البايت)</p>
-       <p><strong>1 كيلوبايت = 1024 بايت</strong></p>
-       <p>طريقة التحقق من حجم الملف (خطوتان)</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="number-badge">2</span> إنشاء اختصار (Shortcut)</h5>
-      <div class="text-gray-700 space-y-2">
-       <p><strong>طريقتان:</strong></p>
-       <p>• الطريقة الأولى: إنشاء في نفس الموقع ثم النقل (4 خطوات)</p>
-       <p>• الطريقة الثانية: إنشاء مباشرة على سطح المكتب (4 خطوات)</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">3</span> حذف الاختصار</h5>
-      <div class="text-gray-700">
-       <p>خطوتان بسيطتان لحذف الاختصار</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">4</span> ضغط الملفات والمجلدات (Compression)</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>4 خطوات لضغط ملف أو مجلد</p>
-       <p>إنشاء ملف مضغوط (Zipped folder)</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">5</span> إعادة تسمية المجلد المضغوط</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>3 خطوات لإعادة التسمية</p>
-       <p><strong>اختصار مفيد:</strong> زر F2 لإعادة التسمية السريعة</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">6</span> فك الضغط عن مجلد مضغوط</h5>
-      <div class="text-gray-700 space-y-2">
-       <p><strong>طريقتان:</strong></p>
-       <p>• الطريقة الأولى: فك ضغط ملف واحد (4 خطوات)</p>
-       <p>• الطريقة الثانية: فك ضغط جميع الملفات (Extract All) - (4 خطوات)</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">7</span> طريقة عرض قائمة الملفات</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>4 خطوات لتغيير طريقة العرض</p>
-       <p><strong>8 أنواع عرض:</strong></p>
-       <div class="grid grid-cols-2 gap-1 text-sm mr-4">
-        <p>• أيقونات كبيرة جداً</p>
-        <p>• أيقونات كبيرة</p>
-        <p>• أيقونات متوسطة</p>
-        <p>• أيقونات صغيرة</p>
-        <p>• قائمة</p>
-        <p>• تفاصيل</p>
-        <p>• لوحات</p>
-        <p>• محتوى</p>
-       </div>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">8</span> عرض تفاصيل أكثر للملفات</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>4 خطوات رئيسية + خطوتان إضافيتان</p>
-       <p><strong>التفاصيل المتاحة:</strong></p>
-       <p>الاسم - تاريخ التعديل - النوع - الحجم - تاريخ الإنشاء - الكاتب</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">9</span> سلة المحذوفات (Recycle Bin)</h5>
-      <div class="text-gray-700 space-y-2">
-       <p><strong>معلومة مهمة:</strong> الملفات لا تُحذف نهائياً مباشرة</p>
-       <p>3 خطوات للوصول والتعامل مع المحذوفات</p>
-       <p><strong>3 خيارات:</strong></p>
-       <div class="mr-4 space-y-1">
-        <p>• استعادة (Restore) - العودة للموقع الأصلي</p>
-        <p>• قص (Cut) - النقل لمكان آخر</p>
-        <p>• حذف (Delete) - الحذف النهائي</p>
-       </div>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">10</span> إفراغ سلة المحذوفات</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>3 خطوات لإفراغ السلة بالكامل</p>
-       <p class="text-red-600 font-semibold">⚠️ تحذير: الحذف النهائي بدون إمكانية الاستعادة</p>
-      </div>
-     </div>
-    </div><button onclick="completeLesson(3)" class="w-full modern-button mt-4"> إكمال الدرس ✓ </button>
-   </div>
-  </div><!-- Lesson 4 -->
-  <div class="lesson-card lesson-card-4 rounded-xl shadow-lg p-6 cursor-pointer" onclick="toggleLesson(4)">
-   <div class="flex items-center justify-between mb-4">
-    <h3 class="text-2xl font-bold" style="font-family: 'Cairo', sans-serif; font-size: 1.5rem;">الدرس الرابع</h3>
-    <div class="floating-icon text-4xl">
-     🖼️
-    </div>
-   </div>
-   <h4 class="text-xl font-semibold mb-2" style="font-family: 'Cairo', sans-serif; font-size: 1.3rem;">إدراج الصور في الوورد</h4>
-   <p class="text-base mb-4 opacity-90" style="font-family: 'Tajawal', sans-serif; font-size: 1.1rem;">تعلم كيفية إدراج وتنسيق الصور والأشكال</p>
-   <div class="flex justify-between items-center"><span class="text-xs bg-white bg-opacity-20 px-2 py-1 rounded-full">7 مواضيع</span> <span class="text-xs opacity-75" id="lesson4-status">غير مكتمل</span>
-   </div>
-   <div class="lesson-content mt-6" id="lesson4-content">
-    <div class="space-y-4">
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">1</span> أهمية إدراج الصور</h5>
-      <div class="text-gray-700">
-       <p>لجعل المستند جذاباً ويسهل الفهم</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">2</span> إدراج الصور</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>• إدراج صورة من الجهاز بخطوات من تبويب إدراج</p>
-       <p>• إدراج صورة من الإنترنت عبر البحث المباشر</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">3</span> تنسيق الصور</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>• إزالة الخلفية لجعل العنصر بارزاً</p>
-       <p>• تعديل السطوع والتباين والوضوح</p>
-       <p>• تغيير الألوان والتأثيرات الفنية</p>
-       <p>• تغيير أو إعادة تعيين الصورة</p>
-       <p>• أنماط وحدود وتأثيرات متعددة مثل الظلال والتوهج</p>
-       <p>• تحويل الصورة إلى مخطط SmartArt</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">4</span> تغيير حجم الصورة</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>• استخدام مقابض الزوايا والجوانب بالفأرة</p>
-       <p>• إدخال أرقام محددة للارتفاع والعرض</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">5</span> تدوير الصورة</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>• تدوير حر عبر المقبض العلوي</p>
-       <p>• خيارات تدوير محددة مثل 90 درجة والقلب الأفقي والعمودي</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">6</span> ترتيب الصور مع النص</h5>
-      <div class="text-gray-700">
-       <p>عدة خيارات لتفاف النص حول الصورة مثل مربع، ضيق، فوق وتحت، خلف أو أمام النص</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">7</span> إدراج الأشكال (Shapes)</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>• أشكال متنوعة: خطوط، مستطيلات، أسهم، نجوم، إلخ</p>
-       <p>• طريقة إدراج الأشكال بالسحب والإفلات</p>
-      </div>
-     </div>
-    </div><button onclick="completeLesson(4)" class="w-full modern-button mt-4"> إكمال الدرس ✓ </button>
-   </div>
-  </div><!-- Lesson 5 -->
-  <div class="lesson-card lesson-card-5 rounded-xl shadow-lg p-6 cursor-pointer" onclick="toggleLesson(5)">
-   <div class="flex items-center justify-between mb-4">
-    <h3 class="text-2xl font-bold" style="font-family: 'Cairo', sans-serif; font-size: 1.5rem;">الدرس الخامس</h3>
-    <div class="floating-icon text-4xl">
-     📝
-    </div>
-   </div>
-   <h4 class="text-xl font-semibold mb-2" style="font-family: 'Cairo', sans-serif; font-size: 1.3rem;">التنسيق المتقدم</h4>
-   <p class="text-base mb-4 opacity-90" style="font-family: 'Tajawal', sans-serif; font-size: 1.1rem;">تعلم تقنيات التنسيق المتقدمة في الوورد</p>
-   <div class="flex justify-between items-center"><span class="text-xs bg-white bg-opacity-20 px-2 py-1 rounded-full">4 مواضيع</span> <span class="text-xs opacity-75" id="lesson5-status">غير مكتمل</span>
-   </div>
-   <div class="lesson-content mt-6" id="lesson5-content">
-    <div class="space-y-4">
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">1</span> المسافة البادئة للفقرة</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>• زيادة المسافة البادئة عبر خيار «زيادة المسافة البادئة» في تبويب «الصفحة الرئيسية» ضمن «فقرة»</p>
-       <p>• إنقاص المسافة البادئة عبر خيار «إنقاص المسافة البادئة»</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">2</span> تباعد الأحرف</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>• افتح مربع حوار «الخط» من تبويب «الصفحة الرئيسية»</p>
-       <p>• انتقل إلى علامة التبويب «متقدم»</p>
-       <p>• ضمن «التباعد» اختر «موسع» أو «مضغوط» وحدد قيمة النقاط</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">3</span> الكتابة المستمرة وإنشاء الفقرات</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>• لإنشاء سطر جديد داخل الفقرة دون بدء فقرة جديدة اضغط <strong>Shift+Enter</strong></p>
-       <p>• لبدء فقرة جديدة اضغط <strong>Enter</strong></p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">4</span> إظهار وإخفاء علامات التنسيق</h5>
-      <div class="text-gray-700">
-       <p>اضغط على أيقونة «¶» (إظهار/إخفاء) في مجموعة «فقرة» بتبويب «الصفحة الرئيسية» لعرض أو إخفاء المسافات وعلامات الفقرات وغيرها</p>
-      </div>
-     </div>
-    </div><button onclick="completeLesson(5)" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-colors mt-4"> إكمال الدرس ✓ </button>
-   </div>
-  </div><!-- Lesson 6 -->
-  <div class="lesson-card lesson-card-6 rounded-xl shadow-lg p-6 cursor-pointer" onclick="toggleLesson(6)">
-   <div class="flex items-center justify-between mb-4">
-    <h3 class="text-2xl font-bold" style="font-family: 'Cairo', sans-serif; font-size: 1.5rem;">الدرس السادس</h3>
-    <div class="floating-icon text-4xl">
-     📊
-    </div>
-   </div>
-   <h4 class="text-xl font-semibold mb-2" style="font-family: 'Cairo', sans-serif; font-size: 1.3rem;">الرسومات التوضيحية</h4>
-   <p class="text-base mb-4 opacity-90" style="font-family: 'Tajawal', sans-serif; font-size: 1.1rem;">إنشاء وتنسيق الرسوم التوضيحية SmartArt</p>
-   <div class="flex justify-between items-center"><span class="text-xs bg-white bg-opacity-30 text-gray-700 px-2 py-1 rounded-full">7 مواضيع</span> <span class="text-xs opacity-75" id="lesson6-status">غير مكتمل</span>
-   </div>
-   <div class="lesson-content mt-6" id="lesson6-content">
-    <div class="space-y-4">
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">1</span> مفهوم الرسوم التوضيحية</h5>
-      <div class="text-gray-700">
-       <p>تُستخدم لعرض المعلومات بشكل أوضح داخل المستند</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">2</span> إدراج الرسوم التوضيحية</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>• من تبويب إدراج → مجموعة رسومات توضيحية → SmartArt</p>
-       <p>• اختيار تصنيف من الجهة اليسرى (الكل، قائمة، عملية، دورة، …)</p>
-       <p>• تحديد التصميم ثم موافق</p>
-       <p>• كتابة النص داخل المربعات</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">3</span> تنسيق الرسوم التوضيحية</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>• تغيير الألوان عبر Design → Change Colors</p>
-       <p>• تطبيق أنماط SmartArt عبر SmartArt Styles</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">4</span> إضافة وحذف الأشكال</h5>
-      <div class="text-gray-700">
-       <p>من تبويب Design → Add Shape</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">5</span> تحرير نص SmartArt</h5>
-      <div class="text-gray-700">
-       <p>استخدام جزء النص (Text Pane) لإضافة وتعديل النصوص</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">6</span> أنواع الرسوم التوضيحية</h5>
-      <div class="text-gray-700 space-y-1">
-       <p>• قائمة (List)</p>
-       <p>• عملية (Process)</p>
-       <p>• دورة (Cycle)</p>
-       <p>• هيكلي (Hierarchy)</p>
-       <p>• علاقة (Relationship)</p>
-       <p>• مصفوفة (Matrix)</p>
-       <p>• هرمي (Pyramid)</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">7</span> نصائح أثناء العمل</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>• تحديد التصميم المناسب لنوع المحتوى</p>
-       <p>• اختيار الألوان المتناسقة</p>
-       <p>• استخدام جزء النص لتسهيل التحرير والتنسيق</p>
-      </div>
-     </div>
-    </div><button onclick="completeLesson(6)" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-colors mt-4"> إكمال الدرس ✓ </button>
-   </div>
-  </div><!-- Lesson 7 -->
-  <div class="lesson-card lesson-card-7 rounded-xl shadow-lg p-6 cursor-pointer" onclick="toggleLesson(7)">
-   <div class="flex items-center justify-between mb-4">
-    <h3 class="text-2xl font-bold" style="font-family: 'Cairo', sans-serif; font-size: 1.5rem;">الدرس السابع</h3>
-    <div class="floating-icon text-4xl">
-     🖨️
-    </div>
-   </div>
-   <h4 class="text-xl font-semibold mb-2" style="font-family: 'Cairo', sans-serif; font-size: 1.3rem;">التدقيق والطباعة</h4>
-   <p class="text-base mb-4 opacity-90" style="font-family: 'Tajawal', sans-serif; font-size: 1.1rem;">تدقيق المستندات وإعدادات الطباعة</p>
-   <div class="flex justify-between items-center"><span class="text-xs bg-white bg-opacity-30 text-gray-700 px-2 py-1 rounded-full">7 مواضيع</span> <span class="text-xs opacity-75" id="lesson7-status">غير مكتمل</span>
-   </div>
-   <div class="lesson-content mt-6" id="lesson7-content">
-    <div class="space-y-4">
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">1</span> التدقيق والتحقق من الأخطاء</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>• فتح جزء "تدقيق إملائي ونحوي" من تبويب مراجعة &gt; تدقيق إملائي ونحوي أو الضغط على <strong>F7</strong></p>
-       <p>• التسطير الأحمر للأخطاء الإملائية، والأزرق للأخطاء النحوية</p>
-       <p>• استعراض الاقتراحات لكل خطأ وتطبيق التصحيح أو تجاهل الكلمة</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">2</span> البحث عن المرادفات</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>• من تبويب مراجعة &gt; قاموس المرادفات أو الضغط على <strong>Shift+F7</strong></p>
-       <p>• إدخال الكلمة في مربع البحث واختيار المرادف المناسب</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">3</span> الترجمة والقراءة الصوتية</h5>
-      <div class="text-gray-700">
-       <p>من تبويب مراجعة اختيار الترجمة أو قراءة بصوت عالٍ</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">4</span> الطباعة</h5>
-      <div class="text-gray-700">
-       <p>فتح مربع حوار الطباعة من ملف &gt; طباعة أو الضغط على <strong>Ctrl+P</strong></p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">5</span> إعدادات الطباعة</h5>
-      <div class="text-gray-700">
-       <p>معاينة الصفحات وعدد النسخ وإعدادات الطابعة في اللوحة اليمنى</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">6</span> نطاق الطباعة واتجاه الصفحة</h5>
-      <div class="text-gray-700 space-y-2">
-       <p>• تحديد نطاق الصفحات (كل الصفحات، الحالية، مخصص)</p>
-       <p>• اختيار اتجاه الصفحة (عمودي/أفقي)</p>
-      </div>
-     </div>
-     <div class="section-card p-4 rounded-lg">
-      <h5 class="font-bold text-gray-800 mb-2 flex items-center"><span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">7</span> بدء عملية الطباعة</h5>
-      <div class="text-gray-700">
-       <p>الضغط على طباعة لبدء الإجراء</p>
-      </div>
-     </div>
-    </div><button onclick="completeLesson(7)" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-colors mt-4"> إكمال الدرس ✓ </button>
-   </div>
-  </div> <!-- Quiz Section -->
-  <div class="bg-white rounded-xl shadow-lg p-6 mb-8" id="quizSection" style="display: none;">
-   <h3 class="text-2xl font-bold text-center mb-6 text-purple-600">🎯 اختبار سريع</h3>
-   <div id="quizContent"><!-- Quiz questions will be inserted here -->
-   </div>
-  </div><!-- Completion Certificate -->
-  <div class="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-xl shadow-lg p-8 text-center" id="certificate" style="display: none;">
-   <div class="text-6xl mb-4">
-    🏆
-   </div>
-   <h2 class="text-3xl font-bold text-white mb-4">مبروك!</h2>
-   <p class="text-xl text-white mb-4">لقد أكملت جميع دروس الحاسب الآلي بنجاح</p>
-   <div class="bg-white bg-opacity-20 rounded-lg p-4 mb-4">
-    <p class="text-white font-semibold">شهادة إتمام الدورة</p>
-    <p class="text-white text-sm">مدرسة الإمام أبي حنيفة</p>
-    <p class="text-white text-sm" id="completionDate"></p>
-   </div><button onclick="resetProgress()" class="bg-white text-orange-500 font-bold py-2 px-6 rounded-lg hover:bg-gray-100 transition-colors"> ابدأ من جديد </button>
   </div>
   <script>
         let completedLessons = new Set();
         let totalLessons = 7;
         let currentLesson = null;
+
+        const lessonTitles = {
+            1: "مقدمة في الحاسب الآلي",
+            2: "مكونات الحاسب",
+            3: "الملفات والمجلدات",
+            4: "إدراج الصور في الوورد",
+            5: "التنسيق المتقدم",
+            6: "الرسومات التوضيحية",
+            7: "التدقيق والطباعة"
+        };
 
         // Initialize the application
         function init() {
@@ -1672,11 +1152,9 @@
                         }
 
                         // Update navigation buttons
-                        const navButtons = document.querySelectorAll('.nav-button');
+                        const navButtons = document.querySelectorAll('.lesson-nav-btn');
                         navButtons.forEach(button => {
-                            if (!button.classList.contains('home-button')) {
-                                button.style.background = `linear-gradient(145deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
-                            }
+                            button.style.background = `linear-gradient(145deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
                         });
                     },
                     mapToCapabilities: (config) => ({
@@ -1725,11 +1203,65 @@
                 selectedDetail.classList.add('active');
                 currentLesson = lessonNumber;
                 
+                // Show navigation buttons
+                showLessonNavigation();
+                
                 // Scroll to lesson detail
                 selectedDetail.scrollIntoView({ 
                     behavior: 'smooth', 
                     block: 'start' 
                 });
+            }
+        }
+
+        // Show lesson navigation buttons
+        function showLessonNavigation() {
+            const navButtons = document.getElementById('lessonNavButtons');
+            const prevBtn = document.getElementById('prevLessonBtn');
+            const nextBtn = document.getElementById('nextLessonBtn');
+            const prevTitle = document.getElementById('prevLessonTitle');
+            const nextTitle = document.getElementById('nextLessonTitle');
+
+            if (currentLesson) {
+                navButtons.style.display = 'flex';
+
+                // Update previous button
+                if (currentLesson > 1) {
+                    prevBtn.disabled = false;
+                    prevBtn.style.opacity = '1';
+                    prevTitle.textContent = `الدرس ${currentLesson - 1}`;
+                } else {
+                    prevBtn.disabled = true;
+                    prevBtn.style.opacity = '0.5';
+                    prevTitle.textContent = '';
+                }
+
+                // Update next button
+                if (currentLesson < totalLessons) {
+                    nextBtn.disabled = false;
+                    nextBtn.style.opacity = '1';
+                    nextTitle.textContent = `الدرس ${currentLesson + 1}`;
+                } else {
+                    nextBtn.disabled = true;
+                    nextBtn.style.opacity = '0.5';
+                    nextTitle.textContent = '';
+                }
+            } else {
+                navButtons.style.display = 'none';
+            }
+        }
+
+        // Go to previous lesson
+        function goToPreviousLesson() {
+            if (currentLesson && currentLesson > 1) {
+                showLesson(currentLesson - 1);
+            }
+        }
+
+        // Go to next lesson
+        function goToNextLesson() {
+            if (currentLesson && currentLesson < totalLessons) {
+                showLesson(currentLesson + 1);
             }
         }
 
@@ -1744,6 +1276,9 @@
             }
             
             currentLesson = null;
+            
+            // Hide navigation buttons
+            document.getElementById('lessonNavButtons').style.display = 'none';
             
             // Scroll to top
             window.scrollTo({
@@ -1777,11 +1312,6 @@
             
             saveProgress();
             updateProgress();
-            
-            // Show quiz after completing all lessons
-            if (completedLessons.size === totalLessons) {
-                showQuiz();
-            }
         }
 
         function updateProgress() {
@@ -1822,161 +1352,8 @@
             }
         }
 
-        // Scroll to top function
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        function showQuiz() {
-            const quizSection = document.getElementById('quizSection');
-            const quizContent = document.getElementById('quizContent');
-            
-            const questions = [
-                {
-                    question: "ما هو تعريف الحاسب الآلي؟",
-                    options: [
-                        "آلة إلكترونية تستقبل البيانات وتعالجها وتخرج النتائج",
-                        "جهاز للألعاب فقط",
-                        "آلة حاسبة كبيرة",
-                        "جهاز تلفزيون ذكي"
-                    ],
-                    correct: 0
-                },
-                {
-                    question: "كم عدد أنواع الحاسبات المذكورة في الدرس الأول؟",
-                    options: ["3", "4", "5", "6"],
-                    correct: 2
-                },
-                {
-                    question: "ما هو الجزء الذي يُسمى 'عقل الحاسب'؟",
-                    options: [
-                        "اللوحة الأم",
-                        "وحدة المعالجة المركزية",
-                        "ذاكرة الوصول العشوائي",
-                        "القرص الصلب"
-                    ],
-                    correct: 1
-                }
-            ];
-
-            let currentQuestion = 0;
-            let score = 0;
-
-            function displayQuestion() {
-                if (currentQuestion < questions.length) {
-                    const q = questions[currentQuestion];
-                    quizContent.innerHTML = `
-                        <div class="mb-6">
-                            <h4 class="text-lg font-semibold mb-4">السؤال ${currentQuestion + 1} من ${questions.length}</h4>
-                            <p class="text-gray-800 mb-4">${q.question}</p>
-                            <div class="space-y-2">
-                                ${q.options.map((option, index) => `
-                                    <div class="quiz-option p-3 border rounded-lg" onclick="selectAnswer(${index})">
-                                        ${option}
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    `;
-                } else {
-                    showQuizResults();
-                }
-            }
-
-            window.selectAnswer = function(selectedIndex) {
-                const options = document.querySelectorAll('.quiz-option');
-                const correct = questions[currentQuestion].correct;
-                
-                options.forEach((option, index) => {
-                    if (index === correct) {
-                        option.classList.add('correct');
-                    } else if (index === selectedIndex && index !== correct) {
-                        option.classList.add('incorrect');
-                    }
-                    option.style.pointerEvents = 'none';
-                });
-
-                if (selectedIndex === correct) {
-                    score++;
-                }
-
-                setTimeout(() => {
-                    currentQuestion++;
-                    displayQuestion();
-                }, 1500);
-            };
-
-            function showQuizResults() {
-                const percentage = (score / questions.length) * 100;
-                quizContent.innerHTML = `
-                    <div class="text-center">
-                        <div class="text-6xl mb-4">${percentage >= 70 ? '🎉' : '📚'}</div>
-                        <h4 class="text-2xl font-bold mb-4">${percentage >= 70 ? 'ممتاز!' : 'يمكنك المحاولة مرة أخرى'}</h4>
-                        <p class="text-lg mb-4">النتيجة: ${score} من ${questions.length} (${Math.round(percentage)}%)</p>
-                        ${percentage >= 70 ? 
-                            '<button onclick="showCertificate()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg">احصل على الشهادة</button>' :
-                            '<button onclick="retakeQuiz()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg">إعادة المحاولة</button>'
-                        }
-                    </div>
-                `;
-            }
-
-            window.retakeQuiz = function() {
-                currentQuestion = 0;
-                score = 0;
-                displayQuestion();
-            };
-
-            quizSection.style.display = 'block';
-            displayQuestion();
-        }
-
-        function showCertificate() {
-            document.getElementById('quizSection').style.display = 'none';
-            document.getElementById('certificate').style.display = 'block';
-            document.getElementById('completionDate').textContent = new Date().toLocaleDateString('ar-SA');
-        }
-
-        function resetProgress() {
-            completedLessons.clear();
-            localStorage.removeItem('computerLessonsProgress');
-            
-            // Reset UI
-            for (let i = 1; i <= totalLessons; i++) {
-                document.getElementById(`lesson${i}-status`).textContent = 'غير مكتمل';
-                document.getElementById(`lesson${i}-status`).className = 'text-xs text-gray-500';
-                document.getElementById(`lesson${i}-content`).classList.remove('active');
-            }
-            
-            document.getElementById('certificate').style.display = 'none';
-            document.getElementById('quizSection').style.display = 'none';
-            updateProgress();
-        }
-
-        // Back to top functionality
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // Show/hide back to top button based on scroll position
-        function handleScroll() {
-            const backToTopBtn = document.getElementById('backToTopBtn');
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        }
-
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', init);
-        window.addEventListener('scroll', handleScroll);
-    </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99080e01e0233f39',t:'MTc2MDc5MDcwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+      </script> 
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'990859dd164097d8',t:'MTc2MDc5MzgxNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
