@@ -1,2 +1,1391 @@
 # 5h
 الصف الخامس ف1
+<!doctype html>
+<html lang="ar" dir="rtl">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المهارات الرقمية - الصف الخامس الابتدائي</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f0c29 0%, #24243e 50%, #302b63 100%);
+            min-height: 100%;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .main-header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 30px;
+            padding: 60px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 25px 60px rgba(102, 126, 234, 0.3);
+            border: none;
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+
+        .course-title {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .semester-info {
+            font-size: 1.6rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 25px;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .teacher-info {
+            font-size: 1.3rem;
+            color: #1a202c;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+            padding: 18px 35px;
+            border-radius: 25px;
+            display: inline-block;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 2;
+            font-weight: 600;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .teacher-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .navigation-section {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.95) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .nav-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 35px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .lesson-card {
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+        }
+
+        .lesson-1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .lesson-2 {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            box-shadow: 0 15px 35px rgba(255, 107, 157, 0.4);
+        }
+
+        .lesson-3 {
+            background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+            box-shadow: 0 15px 35px rgba(0, 210, 255, 0.4);
+        }
+
+        .lesson-4 {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            box-shadow: 0 15px 35px rgba(17, 153, 142, 0.4);
+        }
+
+        .lesson-5 {
+            background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
+            box-shadow: 0 15px 35px rgba(252, 70, 107, 0.4);
+        }
+
+        .lesson-6 {
+            background: linear-gradient(135deg, #fdbb2d 0%, #22c1c3 100%);
+            box-shadow: 0 15px 35px rgba(253, 187, 45, 0.4);
+        }
+
+        .lesson-7 {
+            background: linear-gradient(135deg, #ff9068 0%, #fd746c 100%);
+            box-shadow: 0 15px 35px rgba(255, 144, 104, 0.4);
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+            border-color: #ffd700;
+        }
+
+        .lesson-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lesson-card:hover::before {
+            opacity: 1;
+        }
+
+        .lesson-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .lesson-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .lesson-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .current-lesson {
+            background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(248,250,252,0.98) 100%);
+            backdrop-filter: blur(15px);
+            color: #333;
+            border-radius: 25px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .current-lesson-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 35px;
+            text-align: center;
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
+            padding-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .section {
+            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(248,250,252,0.8) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid transparent;
+            border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            backdrop-filter: blur(5px);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid transparent;
+            border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
+            margin: 20px 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+        }
+
+        .computer-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .type-card {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: #2d3748;
+            padding: 25px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            border: 2px solid #fed7d7;
+        }
+
+        .type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 154, 158, 0.3);
+        }
+
+        .type-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #1a202c;
+        }
+
+        .type-card .features {
+            background: rgba(255,255,255,0.7);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 8px 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .interactive-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tool-card {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #2d3748;
+            padding: 20px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            border: 2px solid #bee3f8;
+        }
+
+        .tool-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(168, 237, 234, 0.4);
+        }
+
+        .tool-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            font-weight: bold;
+            color: #1a202c;
+        }
+
+        .tool-card p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .highlight-text {
+            background: linear-gradient(135deg, rgba(253, 187, 45, 0.2) 0%, rgba(34, 193, 195, 0.2) 100%);
+            backdrop-filter: blur(5px);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 4px solid transparent;
+            border-image: linear-gradient(135deg, #fdbb2d 0%, #22c1c3 100%) 1;
+            font-weight: 600;
+            box-shadow: 0 8px 25px rgba(253, 187, 45, 0.15);
+        }
+
+        .progress-navigation {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.95) 100%);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 20px 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            z-index: 1000;
+            display: none;
+            min-width: 400px;
+            max-width: 90vw;
+        }
+
+        .progress-navigation.show {
+            display: block;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        .progress-header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .progress-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .lesson-counter {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .progress-bar-container {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 15px;
+            height: 8px;
+            margin: 15px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            border-radius: 15px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
+            animation: shimmer 2s ease-in-out infinite;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            min-width: 120px;
+            justify-content: center;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-button:disabled {
+            background: linear-gradient(135deg, #cbd5e0 0%, #a0aec0 100%);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .nav-button:disabled:hover {
+            transform: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .close-lesson-btn {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+        }
+
+        .close-lesson-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .progress-navigation {
+                bottom: 10px;
+                padding: 15px 20px;
+                min-width: 350px;
+            }
+
+            .navigation-buttons {
+                gap: 10px;
+            }
+
+            .nav-button {
+                padding: 10px 15px;
+                font-size: 0.8rem;
+                min-width: 100px;
+            }
+
+            .progress-title {
+                font-size: 1rem;
+            }
+
+            .lesson-counter {
+                font-size: 0.8rem;
+            }
+
+            .close-lesson-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
+            .container {
+                padding: 15px;
+            }
+            
+            .course-title {
+                font-size: 2.2rem;
+            }
+            
+            .semester-info {
+                font-size: 1.2rem;
+            }
+            
+            .teacher-info {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+            
+            .main-header {
+                padding: 25px;
+            }
+            
+            .lessons-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .lesson-card {
+                padding: 20px;
+            }
+            
+            .lesson-number {
+                font-size: 2rem;
+            }
+            
+            .lesson-title {
+                font-size: 1.2rem;
+            }
+            
+            .lesson-description {
+                font-size: 0.95rem;
+            }
+            
+            .current-lesson {
+                padding: 20px;
+            }
+            
+            .current-lesson-title {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .computer-types {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .interactive-tools {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .type-card, .tool-card {
+                padding: 20px;
+            }
+            
+            .type-card h3, .tool-card h4 {
+                font-size: 1.2rem;
+            }
+            
+            .features {
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+            
+            .definition-box {
+                padding: 15px;
+                font-size: 1rem;
+            }
+            
+            .highlight-text {
+                padding: 12px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="container">
+   <header class="main-header">
+    <h1 class="course-title" id="course-title">المهارات الرقمية</h1>
+    <p class="semester-info" id="semester-info">الصف الخامس الابتدائي - الفصل الدراسي الأول</p>
+    <div class="teacher-info" id="teacher-info">
+     معلم المادة: محمد الناشري
+    </div>
+   </header>
+   <section class="navigation-section">
+    <h2 class="nav-title">📚 دروس المقرر</h2>
+    <div class="lessons-grid">
+     <div class="lesson-card lesson-1" onclick="showLesson1()">
+      <div class="lesson-number">
+       1️⃣
+      </div>
+      <div class="lesson-title">
+       مقدمة في الحاسب
+      </div>
+      <div class="lesson-description">
+       تعريف الحاسب وأنواعه المختلفة والأدوات التفاعلية
+      </div>
+     </div>
+     <div class="lesson-card lesson-2" onclick="showLesson2()">
+      <div class="lesson-number">
+       2️⃣
+      </div>
+      <div class="lesson-title">
+       مكونات الحاسب
+      </div>
+      <div class="lesson-description">
+       الأجزاء الداخلية والخارجية وأجهزة الإدخال والإخراج
+      </div>
+     </div>
+     <div class="lesson-card lesson-3" onclick="showLesson3()">
+      <div class="lesson-number">
+       3️⃣
+      </div>
+      <div class="lesson-title">
+       الملفات والمجلدات
+      </div>
+      <div class="lesson-description">
+       حجم الملفات، الاختصارات، الضغط، سلة المحذوفات وطرق العرض
+      </div>
+     </div>
+     <div class="lesson-card lesson-4" onclick="showLesson4()">
+      <div class="lesson-number">
+       4️⃣
+      </div>
+      <div class="lesson-title">
+       إدراج الصور في الوورد
+      </div>
+      <div class="lesson-description">
+       إدراج وتنسيق الصور، الأشكال، تغيير الحجم والتدوير
+      </div>
+     </div>
+     <div class="lesson-card lesson-5" onclick="showLesson5()">
+      <div class="lesson-number">
+       5️⃣
+      </div>
+      <div class="lesson-title">
+       التنسيق المتقدم
+      </div>
+      <div class="lesson-description">
+       المسافة البادئة، تباعد الأحرف، الكتابة المستمرة وعلامات التنسيق
+      </div>
+     </div>
+     <div class="lesson-card lesson-6" onclick="showLesson6()">
+      <div class="lesson-number">
+       6️⃣
+      </div>
+      <div class="lesson-title">
+       إدراج الرسومات التوضيحية
+      </div>
+      <div class="lesson-description">
+       SmartArt، الأنواع المختلفة، التنسيق والتحرير المتقدم
+      </div>
+     </div>
+     <div class="lesson-card lesson-7" onclick="showLesson7()">
+      <div class="lesson-number">
+       7️⃣
+      </div>
+      <div class="lesson-title">
+       التدقيق والطباعة
+      </div>
+      <div class="lesson-description">
+       التدقيق الإملائي والنحوي، المرادفات، الترجمة وإعدادات الطباعة
+      </div>
+     </div>
+    </div>
+   </section>
+   <div class="current-lesson" id="lesson-content" style="display: none;"><!-- محتوى الدرس سيظهر هنا عند النقر على أي درس -->
+   </div><!-- شريط التقدم والتنقل -->
+   <div class="progress-navigation" id="progress-navigation">
+    <div class="progress-header">
+     <div class="progress-title" id="current-lesson-title">
+      الدرس الأول: مقدمة في الحاسب
+     </div>
+     <div class="lesson-counter" id="lesson-counter">
+      الدرس 1 من 7
+     </div>
+    </div>
+    <div class="progress-bar-container">
+     <div class="progress-bar" id="progress-bar" style="width: 14.3%;"></div>
+    </div>
+    <div class="navigation-buttons"><button class="nav-button" id="prev-lesson" onclick="previousLesson()"> <span>⏮️</span> <span>السابق</span> </button> <button class="close-lesson-btn" onclick="closeLessonView()"> <span>✖️ إغلاق</span> </button> <button class="nav-button" id="next-lesson" onclick="nextLesson()"> <span>التالي</span> <span>⏭️</span> </button>
+    </div>
+   </div>
+  </div>
+  <script>
+        const defaultConfig = {
+            course_title: "المهارات الرقمية",
+            semester_info: "الصف الخامس الابتدائي - الفصل الدراسي الأول",
+            teacher_name: "معلم المادة: محمد الناشري",
+            primary_color: "#1e3c72",
+            secondary_color: "#2a5298",
+            font_family: "Segoe UI",
+            font_size: 16
+        };
+
+        // متغيرات التنقل
+        let currentLessonIndex = 0;
+        const totalLessons = 7;
+        
+        const lessonTitles = [
+            "الدرس الأول: مقدمة في الحاسب",
+            "الدرس الثاني: مكونات الحاسب", 
+            "الدرس الثالث: الملفات والمجلدات",
+            "الدرس الرابع: إدراج الصور في الوورد",
+            "الدرس الخامس: التنسيق المتقدم",
+            "الدرس السادس: إدراج الرسومات التوضيحية",
+            "الدرس السابع: التدقيق والطباعة"
+        ];
+
+        const lessonFunctions = [
+            showLesson1, showLesson2, showLesson3, 
+            showLesson4, showLesson5, showLesson6, showLesson7
+        ];
+
+        async function render(config) {
+            const titleElement = document.getElementById('course-title');
+            const semesterElement = document.getElementById('semester-info');
+            const teacherElement = document.getElementById('teacher-info');
+            
+            if (titleElement) {
+                titleElement.textContent = config.course_title || defaultConfig.course_title;
+                titleElement.style.fontFamily = `${config.font_family || defaultConfig.font_family}, Tahoma, Geneva, Verdana, sans-serif`;
+                titleElement.style.fontSize = `${(config.font_size || defaultConfig.font_size) * 3 / 16}rem`;
+                titleElement.style.color = config.primary_color || defaultConfig.primary_color;
+            }
+            
+            if (semesterElement) {
+                semesterElement.textContent = config.semester_info || defaultConfig.semester_info;
+                semesterElement.style.fontFamily = `${config.font_family || defaultConfig.font_family}, Tahoma, Geneva, Verdana, sans-serif`;
+                semesterElement.style.fontSize = `${(config.font_size || defaultConfig.font_size) * 1.4 / 16}rem`;
+            }
+
+            if (teacherElement) {
+                teacherElement.textContent = config.teacher_name || defaultConfig.teacher_name;
+                teacherElement.style.fontFamily = `${config.font_family || defaultConfig.font_family}, Tahoma, Geneva, Verdana, sans-serif`;
+                teacherElement.style.fontSize = `${(config.font_size || defaultConfig.font_size) * 1.2 / 16}rem`;
+            }
+
+            // Apply font to all text elements
+            const allTextElements = document.querySelectorAll('body, .section-title, .nav-title, .current-lesson-title');
+            allTextElements.forEach(element => {
+                element.style.fontFamily = `${config.font_family || defaultConfig.font_family}, Tahoma, Geneva, Verdana, sans-serif`;
+            });
+
+            // Apply colors to background
+            document.body.style.background = `linear-gradient(135deg, ${config.primary_color || defaultConfig.primary_color} 0%, ${config.secondary_color || defaultConfig.secondary_color} 100%)`;
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.primary_color || defaultConfig.primary_color,
+                        set: (value) => {
+                            config.primary_color = value;
+                            window.elementSdk.setConfig({ primary_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.secondary_color || defaultConfig.secondary_color,
+                        set: (value) => {
+                            config.secondary_color = value;
+                            window.elementSdk.setConfig({ secondary_color: value });
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: {
+                    get: () => config.font_family || defaultConfig.font_family,
+                    set: (value) => {
+                        config.font_family = value;
+                        window.elementSdk.setConfig({ font_family: value });
+                    }
+                },
+                fontSizeable: {
+                    get: () => config.font_size || defaultConfig.font_size,
+                    set: (value) => {
+                        config.font_size = value;
+                        window.elementSdk.setConfig({ font_size: value });
+                    }
+                }
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["course_title", config.course_title || defaultConfig.course_title],
+                ["semester_info", config.semester_info || defaultConfig.semester_info],
+                ["teacher_name", config.teacher_name || defaultConfig.teacher_name]
+            ]);
+        }
+
+        // وظائف التحكم بالتنقل
+        function updateProgressNavigation() {
+            const progressNav = document.getElementById('progress-navigation');
+            const progressBar = document.getElementById('progress-bar');
+            const lessonTitleElement = document.getElementById('current-lesson-title');
+            const lessonCounterElement = document.getElementById('lesson-counter');
+            const prevButton = document.getElementById('prev-lesson');
+            const nextButton = document.getElementById('next-lesson');
+
+            // تحديث شريط التقدم
+            const progressPercentage = ((currentLessonIndex + 1) / totalLessons) * 100;
+            progressBar.style.width = progressPercentage + '%';
+
+            // تحديث عنوان الدرس
+            lessonTitleElement.textContent = lessonTitles[currentLessonIndex];
+            lessonCounterElement.textContent = `الدرس ${currentLessonIndex + 1} من ${totalLessons}`;
+
+            // تحديث حالة الأزرار
+            prevButton.disabled = currentLessonIndex === 0;
+            nextButton.disabled = currentLessonIndex === totalLessons - 1;
+
+            // إظهار شريط التنقل
+            progressNav.classList.add('show');
+
+            // التمرير إلى محتوى الدرس
+            document.getElementById('lesson-content').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+
+        function previousLesson() {
+            if (currentLessonIndex > 0) {
+                currentLessonIndex--;
+                lessonFunctions[currentLessonIndex]();
+                updateProgressNavigation();
+            }
+        }
+
+        function nextLesson() {
+            if (currentLessonIndex < totalLessons - 1) {
+                currentLessonIndex++;
+                lessonFunctions[currentLessonIndex]();
+                updateProgressNavigation();
+            }
+        }
+
+        function closeLessonView() {
+            document.getElementById('lesson-content').style.display = 'none';
+            document.getElementById('progress-navigation').classList.remove('show');
+            
+            // التمرير إلى أعلى الصفحة
+            document.querySelector('.main-header').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+
+        function showLesson1() {
+            currentLessonIndex = 0;
+            document.getElementById('lesson-content').style.display = 'block';
+            updateProgressNavigation();
+            document.getElementById('lesson-content').innerHTML = `
+                <h2 class="current-lesson-title">الدرس الأول: مقدمة في الحاسب</h2>
+
+                <section class="section">
+                    <h3 class="section-title">1️⃣ تعريف الحاسب</h3>
+                    <div class="definition-box">
+                        <p><strong>الحاسب جهاز إلكتروني يتبع تعليمات محددة ويتخذ القرارات</strong></p>
+                        <p>يستطيع معالجة البيانات وحفظها وإخراج النتائج بسرعة عالية ودقة متناهية</p>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h3 class="section-title">2️⃣ أنواع الحاسب</h3>
+                    <div class="highlight-text">
+                        <p><strong>خمسة أنواع رئيسية من الحاسبات تناسب الاستخدامات المختلفة</strong></p>
+                    </div>
+                    <div class="computer-types">
+                        <div class="type-card">
+                            <h3>🖥️ الحاسبات المكتبية</h3>
+                            <p><strong>للمكتب والمدرسة</strong></p>
+                            <div class="features">5 أجزاء: الشاشة، لوحة المفاتيح، الفأرة، وحدة النظام، مكبر الصوت</div>
+                            <div class="features">قوية ومناسبة للأعمال الثقيلة</div>
+                            <div class="features">سعر مناسب وسهولة في الصيانة</div>
+                        </div>
+
+                        <div class="type-card">
+                            <h3>💻 الحاسب المحمول</h3>
+                            <div class="features">قوة الحاسبات المكتبية</div>
+                            <div class="features">خفيف الوزن</div>
+                            <div class="features">بطارية داخلية</div>
+                            <div class="features">استخدام في أي مكان</div>
+                        </div>
+
+                        <div class="type-card">
+                            <h3>📱 الحاسبات اللوحية</h3>
+                            <div class="features">أحدث الأنواع</div>
+                            <div class="features">بدون لوحة مفاتيح</div>
+                            <div class="features">إدخال باللمس</div>
+                            <div class="features">بحجم الكتاب</div>
+                        </div>
+
+                        <div class="type-card">
+                            <h3>📞 الهواتف الذكية</h3>
+                            <p><strong>حاسب مصغر</strong></p>
+                            <div class="features">5 استخدامات: اتصال، تصفح، رسائل، دردشة، ألعاب</div>
+                            <div class="features">محمول وسهل الاستخدام</div>
+                            <div class="features">متصل بالإنترنت دائماً</div>
+                        </div>
+
+                        <div class="type-card">
+                            <h3>🎮 مشغلات ألعاب الفيديو</h3>
+                            <div class="features">ألعاب فردية وجماعية</div>
+                            <div class="features">تصفح المواقع</div>
+                            <div class="features">جودة رسومات عالية</div>
+                            <div class="features">تحكم متقدم بالألعاب</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h3 class="section-title">3️⃣ أدوات الحاسب التفاعلية</h3>
+                    <div class="highlight-text">
+                        <p><strong>ثمانية أدوات حديثة للتفاعل مع الحاسب بطرق مختلفة ومبتكرة</strong></p>
+                    </div>
+                    <div class="interactive-tools">
+                        <div class="tool-card">
+                            <h4>👆 لوحة اللمس</h4>
+                            <p>بديل الفأرة</p>
+                            <p>سطح خاص للتعرف على الإصبع</p>
+                            <p>في الحاسبات المحمولة</p>
+                        </div>
+
+                        <div class="tool-card">
+                            <h4>📱 شاشة اللمس</h4>
+                            <p>بدون لوحة مفاتيح أو فأرة</p>
+                            <p>تعمل باللمس المباشر</p>
+                            <p>سهولة في الاستخدام</p>
+                        </div>
+
+                        <div class="tool-card">
+                            <h4>🎨 لوح الرسم (المحول الرقمي)</h4>
+                            <p>رسم يدوي كالورقة والقلم</p>
+                            <p>للمصممين والرسامين</p>
+                            <p>دقة عالية في الرسم</p>
+                        </div>
+
+                        <div class="tool-card">
+                            <h4>⚪ كرة التتبع</h4>
+                            <p>فأرة مقلوبة</p>
+                            <p>كرة كبيرة</p>
+                            <p>لتحريك المؤشر</p>
+                        </div>
+
+                        <div class="tool-card">
+                            <h4>🎮 لوحة الألعاب</h4>
+                            <p>للتحكم بالألعاب</p>
+                            <p>أشكال مختلفة</p>
+                            <p>عصا تحكم أو عجلة قيادة</p>
+                        </div>
+
+                        <div class="tool-card">
+                            <h4>🎯 نينتندو وي</h4>
+                            <p>ثورة في عالم الألعاب</p>
+                            <p>تجربة واقعية</p>
+                            <p>إدراك الحركة لجميع الاتجاهات</p>
+                        </div>
+
+                        <div class="tool-card">
+                            <h4>🥽 نظارات الواقع الافتراضي</h4>
+                            <p>محاكاة للواقع الحقيقي</p>
+                            <p>انطباع بعالم مختلف</p>
+                            <p>أزرار وأدوات تحكم</p>
+                        </div>
+
+                        <div class="tool-card">
+                            <h4>🧤 قفازات الواقع الافتراضي</h4>
+                            <p>كالقفازات العادية</p>
+                            <p>استجابة سريعة ودقيقة</p>
+                            <p>نقل حركات اليد</p>
+                            <p>استشعار باللمس</p>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        function showLesson2() {
+            currentLessonIndex = 1;
+            document.getElementById('lesson-content').style.display = 'block';
+            updateProgressNavigation();
+            document.getElementById('lesson-content').innerHTML = `
+                <h2 class="current-lesson-title">الدرس الثاني: مكونات الحاسب</h2>
+
+                <section class="section">
+                    <h3 class="section-title">1️⃣ أجزاء الحاسب الرئيسة</h3>
+                    <div class="highlight-text">
+                        <p><strong>ستة أجزاء أساسية تعمل معاً لتشغيل الحاسب</strong></p>
+                    </div>
+                    <div class="computer-types">
+                        <div class="type-card" style="background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 100%); border: 2px solid #81c784;">
+                            <h3>🔌 اللوحة الأم</h3>
+                            <div class="features">المركز الرئيس</div>
+                            <div class="features">تربط جميع الأجزاء</div>
+                            <div class="features">أساس عمل الحاسب</div>
+                        </div>
+
+                        <div class="type-card" style="background: linear-gradient(135deg, #ffd3a5 0%, #fd9853 100%); border: 2px solid #ff8a65;">
+                            <h3>🧠 وحدة المعالجة المركزية</h3>
+                            <div class="features">عقل الحاسب</div>
+                            <div class="features">كلما زادت سرعته كان أسرع</div>
+                            <div class="features">يعالج جميع العمليات</div>
+                        </div>
+
+                        <div class="type-card" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border: 2px solid #4dd0e1;">
+                            <h3>💾 ذاكرة الوصول العشوائي</h3>
+                            <div class="features">تخزين مؤقت</div>
+                            <div class="features">كلما زادت زادت السرعة</div>
+                            <div class="features">تفقد البيانات عند إغلاق الحاسب</div>
+                        </div>
+
+                        <div class="type-card" style="background: linear-gradient(135deg, #c3cfe2 0%, #c3cfe2 100%); border: 2px solid #90a4ae;">
+                            <h3>💿 القرص الصلب</h3>
+                            <div class="features">التخزين الدائم للبرامج والملفات</div>
+                            <div class="features">يحتفظ بالبيانات حتى بعد الإغلاق</div>
+                            <div class="features">سعات تخزين كبيرة</div>
+                        </div>
+
+                        <div class="type-card" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); border: 2px solid #ffab91;">
+                            <h3>⚡ مزود الطاقة</h3>
+                            <div class="features">يزود الحاسب بالكهرباء</div>
+                            <div class="features">يحول التيار المتردد إلى مستمر</div>
+                            <div class="features">ضروري لتشغيل جميع الأجزاء</div>
+                        </div>
+
+                        <div class="type-card" style="background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); border: 2px solid #ce93d8;">
+                            <h3>📀 محرك الأقراص</h3>
+                            <div class="features">لقراءة CD وDVD</div>
+                            <div class="features">نقل البيانات من الأقراص</div>
+                            <div class="features">تشغيل الأفلام والبرامج</div>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        function showLesson3() {
+            currentLessonIndex = 2;
+            document.getElementById('lesson-content').style.display = 'block';
+            updateProgressNavigation();
+            document.getElementById('lesson-content').innerHTML = `
+                <h2 class="current-lesson-title">الدرس الثالث: الملفات والمجلدات</h2>
+
+                <section class="section">
+                    <h3 class="section-title">1️⃣ حجم الملف</h3>
+                    <div class="definition-box">
+                        <p><strong>حجم الملف هو المساحة التي يشغلها الملف على القرص الصلب</strong></p>
+                        <p>وحدة القياس الأساسية: <strong>البايت (Byte)</strong></p>
+                    </div>
+                    <div class="highlight-text">
+                        <p><strong>1 كيلوبايت = 1024 بايت</strong></p>
+                    </div>
+                </section>
+            `;
+        }
+
+        function showLesson4() {
+            currentLessonIndex = 3;
+            document.getElementById('lesson-content').style.display = 'block';
+            updateProgressNavigation();
+            document.getElementById('lesson-content').innerHTML = `
+                <h2 class="current-lesson-title">الدرس الرابع: إدراج الصور في الوورد</h2>
+
+                <section class="section">
+                    <h3 class="section-title">1️⃣ أهمية إدراج الصور</h3>
+                    <div class="definition-box">
+                        <p><strong>إدراج الصور يجعل المستند أكثر جاذبية ويسهل الفهم</strong></p>
+                        <p>الصور تساعد في توضيح الأفكار وجذب انتباه القارئ وتحسين التصميم العام</p>
+                    </div>
+                </section>
+            `;
+        }
+
+        function showLesson5() {
+            currentLessonIndex = 4;
+            document.getElementById('lesson-content').style.display = 'block';
+            updateProgressNavigation();
+            document.getElementById('lesson-content').innerHTML = `
+                <h2 class="current-lesson-title">الدرس الخامس: التنسيق المتقدم</h2>
+
+                <section class="section">
+                    <h3 class="section-title">1️⃣ المسافة البادئة للفقرة</h3>
+                    <div class="definition-box">
+                        <p><strong>المسافة البادئة تساعد في تنظيم النص وتحسين مظهر المستند</strong></p>
+                        <p>يمكن زيادة أو إنقاص المسافة البادئة للفقرات بسهولة</p>
+                    </div>
+                </section>
+            `;
+        }
+
+        function showLesson6() {
+            currentLessonIndex = 5;
+            document.getElementById('lesson-content').style.display = 'block';
+            updateProgressNavigation();
+            document.getElementById('lesson-content').innerHTML = `
+                <h2 class="current-lesson-title">الدرس السادس: إدراج الرسومات التوضيحية</h2>
+
+                <section class="section">
+                    <h3 class="section-title">1️⃣ مفهوم الرسوم التوضيحية (SmartArt)</h3>
+                    <div class="definition-box">
+                        <p><strong>الرسوم التوضيحية SmartArt هي أدوات بصرية متقدمة لعرض المعلومات</strong></p>
+                        <p>تُستخدم لعرض المعلومات بشكل أوضح وأكثر جاذبية داخل المستند، وتساعد في توضيح الأفكار المعقدة بطريقة بصرية مفهومة</p>
+                    </div>
+                </section>
+            `;
+        }
+
+        function showLesson7() {
+            currentLessonIndex = 6;
+            document.getElementById('lesson-content').style.display = 'block';
+            updateProgressNavigation();
+            document.getElementById('lesson-content').innerHTML = `
+                <h2 class="current-lesson-title">الدرس السابع: التدقيق والطباعة</h2>
+
+                <section class="section">
+                    <h3 class="section-title">1️⃣ التدقيق الإملائي والنحوي</h3>
+                    <div class="definition-box">
+                        <p><strong>التدقيق الإملائي والنحوي يساعد في اكتشاف وتصحيح الأخطاء في النص</strong></p>
+                        <p>يتيح لك الوورد فحص المستند بحثاً عن الأخطاء الإملائية والنحوية وتقديم اقتراحات للتصحيح</p>
+                    </div>
+                    <div class="interactive-tools">
+                        <div class="tool-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: 2px solid #5e72e4;">
+                            <h4>🔍 فتح أداة التدقيق</h4>
+                            <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 6px; margin: 5px 0;"><strong>الطريقة 1:</strong> تبويب "مراجعة" > "تدقيق إملائي ونحوي"</div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 6px; margin: 5px 0;"><strong>الطريقة 2:</strong> اضغط مفتاح F7</div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 6px; margin: 5px 0;"><strong>النتيجة:</strong> فتح جزء التدقيق الإملائي والنحوي</div>
+                        </div>
+                    </div>
+                    <div class="computer-types">
+                        <div class="type-card" style="background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%); color: white; border: 2px solid #ff5722;">
+                            <h3>🔴 الأخطاء الإملائية</h3>
+                            <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 6px; margin: 5px 0;"><strong>التسطير:</strong> خط أحمر تحت الكلمة</div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 6px; margin: 5px 0;"><strong>المعنى:</strong> خطأ في كتابة الكلمة</div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 6px; margin: 5px 0;"><strong>الحل:</strong> اختيار الكلمة الصحيحة من الاقتراحات</div>
+                        </div>
+
+                        <div class="type-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; border: 2px solid #29b6f6;">
+                            <h3>🔵 الأخطاء النحوية</h3>
+                            <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 6px; margin: 5px 0;"><strong>التسطير:</strong> خط أزرق تحت النص</div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 6px; margin: 5px 0;"><strong>المعنى:</strong> خطأ في قواعد اللغة</div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 6px; margin: 5px 0;"><strong>الحل:</strong> تطبيق التصحيح المقترح</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h3 class="section-title">2️⃣ التعامل مع الاقتراحات</h3>
+                    <div class="highlight-text">
+                        <p><strong>خيارات متعددة للتعامل مع كل خطأ يتم اكتشافه</strong></p>
+                    </div>
+                    <div class="interactive-tools">
+                        <div class="tool-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; border: 2px solid #26a69a;">
+                            <h4>✅ تطبيق التصحيح</h4>
+                            <p>اختيار الكلمة الصحيحة من قائمة الاقتراحات</p>
+                            <p>النقر على "تغيير" لتطبيق التصحيح</p>
+                            <p>أو "تغيير الكل" لتصحيح جميع الأخطاء المشابهة</p>
+                        </div>
+
+                        <div class="tool-card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; border: 2px solid #ff7043;">
+                            <h4>❌ تجاهل الكلمة</h4>
+                            <p>النقر على "تجاهل" لتخطي هذا الخطأ</p>
+                            <p>أو "تجاهل الكل" لتجاهل جميع الأخطاء المشابهة</p>
+                            <p>مفيد للأسماء الخاصة والمصطلحات التقنية</p>
+                        </div>
+
+                        <div class="tool-card" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border: 2px solid #4dd0e1;">
+                            <h4>📚 إضافة للقاموس</h4>
+                            <p>إضافة الكلمة للقاموس الشخصي</p>
+                            <p>لن تظهر كخطأ في المستقبل</p>
+                            <p>مناسب للكلمات المتخصصة والأسماء</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h3 class="section-title">3️⃣ قاموس المرادفات</h3>
+                    <div class="highlight-text">
+                        <p><strong>البحث عن كلمات بديلة لتحسين النص وتنويع المفردات</strong></p>
+                    </div>
+                    <div class="interactive-tools">
+                        <div class="tool-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; border: 2px solid #ec407a;">
+                            <h4>📖 فتح قاموس المرادفات</h4>
+                            <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 6px; margin: 5px 0;"><strong>الطريقة 1:</strong> تبويب "مراجعة" > "قاموس المرادفات"</div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 6px; margin: 5px 0;"><strong>الطريقة 2:</strong> اضغط Shift + F7</div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 6px; margin: 5px 0;"><strong>الطريقة 3:</strong> انقر بالزر الأيمن على الكلمة > "مرادفات"</div>
+                        </div>
+
+                        <div class="tool-card" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); border: 2px solid #4fc3f7;">
+                            <h4>🔍 البحث عن المرادفات</h4>
+                            <div class="features"><strong>الخطوة 1:</strong> إدخال الكلمة في مربع البحث</div>
+                            <div class="features"><strong>الخطوة 2:</strong> استعراض قائمة المرادفات</div>
+                            <div class="features"><strong>الخطوة 3:</strong> اختيار المرادف المناسب</div>
+                            <div class="features"><strong>الخطوة 4:</strong> النقر على "إدراج" لاستبدال الكلمة</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h3 class="section-title">4️⃣ الترجمة والقراءة الصوتية</h3>
+                    <div class="highlight-text">
+                        <p><strong>أدوات متقدمة لترجمة النصوص والاستماع إليها</strong></p>
+                    </div>
+                    <div class="computer-types">
+                        <div class="type-card" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); border: 2px solid #ffab91;">
+                            <h3>🌐 الترجمة</h3>
+                            <div class="features"><strong>الوصول:</strong> تبويب "مراجعة" > "ترجمة"</div>
+                            <div class="features"><strong>الخيارات:</strong> ترجمة النص المحدد أو المستند كاملاً</div>
+                            <div class="features"><strong>اللغات:</strong> دعم للعديد من اللغات العالمية</div>
+                            <div class="features"><strong>الاستخدام:</strong> مفيد للمستندات متعددة اللغات</div>
+                        </div>
+
+                        <div class="type-card" style="background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); border: 2px solid #ce93d8;">
+                            <h3>🔊 القراءة الصوتية</h3>
+                            <div class="features"><strong>الوصول:</strong> تبويب "مراجعة" > "قراءة بصوت عالٍ"</div>
+                            <div class="features"><strong>الوظيفة:</strong> قراءة النص المحدد أو المستند</div>
+                            <div class="features"><strong>التحكم:</strong> إيقاف مؤقت، تشغيل، إيقاف</div>
+                            <div class="features"><strong>الفائدة:</strong> مراجعة النص بالاستماع</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h3 class="section-title">5️⃣ الطباعة</h3>
+                    <div class="definition-box">
+                        <p><strong>طباعة المستند بإعدادات مخصصة حسب الحاجة</strong></p>
+                        <p>يوفر الوورد خيارات متقدمة للطباعة تتيح التحكم في جودة الطباعة ونطاق الصفحات</p>
+                    </div>
+                    <div class="interactive-tools">
+                        <div class="tool-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: 2px solid #5e72e4;">
+                            <h4>🖨️ فتح مربع حوار الطباعة</h4>
+                            <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 6px; margin: 5px 0;"><strong>الطريقة 1:</strong> ملف > طباعة</div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 6px; margin: 5px 0;"><strong>الطريقة 2:</strong> اضغط Ctrl + P</div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 6px; margin: 5px 0;"><strong>النتيجة:</strong> فتح نافذة إعدادات الطباعة</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h3 class="section-title">6️⃣ إعدادات الطباعة</h3>
+                    <div class="highlight-text">
+                        <p><strong>خيارات شاملة للتحكم في عملية الطباعة</strong></p>
+                    </div>
+                    <div class="interactive-tools">
+                        <div class="tool-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; border: 2px solid #26a69a;">
+                            <h4>👁️ معاينة الطباعة</h4>
+                            <p>عرض مسبق للصفحات كما ستظهر عند الطباعة</p>
+                            <p>التنقل بين الصفحات لمراجعة التنسيق</p>
+                            <p>التأكد من صحة التخطيط قبل الطباعة</p>
+                        </div>
+
+                        <div class="tool-card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; border: 2px solid #ff7043;">
+                            <h4>🔢 عدد النسخ</h4>
+                            <p>تحديد عدد النسخ المطلوب طباعتها</p>
+                            <p>إدخال الرقم في مربع "النسخ"</p>
+                            <p>مفيد عند الحاجة لنسخ متعددة</p>
+                        </div>
+
+                        <div class="tool-card" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border: 2px solid #4dd0e1;">
+                            <h4>🖨️ إعدادات الطابعة</h4>
+                            <p>اختيار الطابعة المطلوبة</p>
+                            <p>تحديد جودة الطباعة</p>
+                            <p>خيارات الورق والحبر</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h3 class="section-title">7️⃣ نطاق الطباعة واتجاه الصفحة</h3>
+                    <div class="highlight-text">
+                        <p><strong>تحكم دقيق في الصفحات المراد طباعتها واتجاهها</strong></p>
+                    </div>
+                    <div class="computer-types">
+                        <div class="type-card" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); border: 2px solid #4fc3f7;">
+                            <h3>📄 نطاق الصفحات</h3>
+                            <div class="features"><strong>كل الصفحات:</strong> طباعة المستند كاملاً</div>
+                            <div class="features"><strong>الصفحة الحالية:</strong> طباعة الصفحة المعروضة فقط</div>
+                            <div class="features"><strong>نطاق مخصص:</strong> تحديد صفحات معينة (مثل: 1-5, 8, 10)</div>
+                            <div class="features"><strong>الصفحات المحددة:</strong> طباعة النص المحدد فقط</div>
+                        </div>
+
+                        <div class="type-card" style="background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); border: 2px solid #ba68c8;">
+                            <h3>🔄 اتجاه الصفحة</h3>
+                            <div class="features"><strong>عمودي (Portrait):</strong> الارتفاع أكبر من العرض</div>
+                            <div class="features"><strong>أفقي (Landscape):</strong> العرض أكبر من الارتفاع</div>
+                            <div class="features"><strong>الاستخدام:</strong> العمودي للنصوص، الأفقي للجداول</div>
+                            <div class="features"><strong>التغيير:</strong> من إعدادات الطباعة أو تخطيط الصفحة</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h3 class="section-title">8️⃣ بدء عملية الطباعة</h3>
+                    <div class="highlight-text">
+                        <p><strong>الخطوة الأخيرة لإتمام عملية الطباعة بنجاح</strong></p>
+                    </div>
+                    <div class="interactive-tools">
+                        <div class="tool-card" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); border: 2px solid #f48fb1;">
+                            <h4>✅ إتمام الطباعة</h4>
+                            <div class="features"><strong>المراجعة النهائية:</strong> تأكد من جميع الإعدادات</div>
+                            <div class="features"><strong>النقر على "طباعة":</strong> بدء عملية الطباعة الفعلية</div>
+                            <div class="features"><strong>انتظار الإنجاز:</strong> تتبع تقدم الطباعة</div>
+                            <div class="features"><strong>التحقق من النتيجة:</strong> مراجعة الصفحات المطبوعة</div>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        // Initialize Element SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                render,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99075f0720338bd4',t:'MTc2MDc4MzU0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
