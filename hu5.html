@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>حلول أوراق العمل – المهارات الرقمية – الصف الخامس</title>
+
+  <!-- خطوط عربية حديثة -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#e9eef5;            /* خلفية ناعمة */
+      --card:#edf2f7;          /* لون بطاقات */
+      --ink:#1f2937;           /* لون النص */
+      --muted:#6b7280;         /* نص ثانوي */
+      --primary:#2563eb;       /* لون مميز */
+      --radius:16px;
+      --shadow-top: -8px -8px 16px rgba(255,255,255,0.9);
+      --shadow-bot: 8px 8px 20px rgba(0,0,0,0.08);
+      --inset-top: inset 6px 6px 12px rgba(0,0,0,0.06);
+      --inset-bot: inset -6px -6px 12px rgba(255,255,255,0.9);
+    }
+
+    html,body{ height:100%; }
+    body{
+      margin:0; background: var(--bg); color: var(--ink);
+      font-family: "Tajawal","Cairo", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      line-height:1.9; letter-spacing: .1px;
+    }
+
+    .wrap{
+      max-width: 980px; padding: 28px 20px; margin: auto;
+    }
+
+    .title{
+      display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+      margin: 10px 0 24px;
+    }
+    .brand{
+      padding: 14px 18px; border-radius: 14px;
+      background: var(--bg);
+      box-shadow: var(--shadow-top), var(--shadow-bot);
+      font-weight:700; color: var(--primary);
+    }
+    h1{
+      margin:0; font-size: clamp(20px, 3.4vw, 28px);
+      font-weight:800; letter-spacing:.2px;
+    }
+
+    .meta{
+      color: var(--muted); font-size: 0.95rem; margin: 6px 0 22px;
+    }
+
+    .grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    @media(min-width:720px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+    }
+
+    .card{
+      background: linear-gradient(145deg, #f3f6fb, #e6ebf2);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-top), var(--shadow-bot);
+      padding: 18px 18px 14px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 10px 10px 24px rgba(0,0,0,0.10), -6px -6px 18px rgba(255,255,255,0.9);
+    }
+
+    h2{
+      margin: 0 0 10px; font-size: 1.15rem;
+      display:flex; align-items:center; gap:10px; color:#0f172a;
+    }
+    .chip{
+      font-size: .8rem; color: var(--muted);
+      padding: 6px 10px; border-radius: 999px;
+      background: var(--card);
+      box-shadow: var(--shadow-top), var(--shadow-bot);
+    }
+
+    h3{ margin: 12px 0 8px; font-size: 1rem; color:#1f2937; }
+
+    ol, ul{ margin: 6px 0 12px; padding: 0 1.2em; }
+    li{ margin: .35em 0; }
+
+    .note{
+      color: var(--muted);
+      padding: 10px 12px; border-radius: 12px;
+      background: var(--card);
+      box-shadow: var(--inset-top), var(--inset-bot);
+      font-size: .95rem;
+    }
+
+    .toolbar{
+      display:flex; justify-content:flex-start; gap:10px; flex-wrap:wrap; margin: 10px 0 18px;
+    }
+    .btn{
+      appearance:none; border:0; cursor:pointer;
+      padding: 10px 14px; border-radius: 12px;
+      background: var(--bg); color:#111827; font-weight:600;
+      box-shadow: var(--shadow-top), var(--shadow-bot);
+      transition: transform .15s ease, box-shadow .15s ease, color .15s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn:active{ box-shadow: var(--inset-top), var(--inset-bot); }
+
+    .btn-primary{
+      color: white; background: linear-gradient(145deg, #2b6be6, #1d4ed8);
+      box-shadow: var(--shadow-top), var(--shadow-bot);
+    }
+    .btn-primary:active{ box-shadow: var(--inset-top), var(--inset-bot); }
+
+    .footer{
+      text-align:center; color: var(--muted); font-size:.92rem; margin: 26px 0 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <div class="title">
+      <div class="brand">Digital Skills</div>
+      <h1>حلول أوراق العمل – المهارات الرقمية – الصف الخامس</h1>
+    </div>
+
+    <div class="toolbar">
+      <button class="btn" onclick="toggleLists()">تبديل ترقيم/نقاط</button>
+      <button class="btn-primary" onclick="window.print()">طباعة</button>
+    </div>
+
+    <p class="meta">نص منسق بأسلوب Soft UI مع بطاقات مرنة، وخطّي Tajawal وCairo للقراءة الواضحة على الشاشات.</p>
+
+    <div class="grid">
+
+      <!-- 1 -->
+      <section class="card">
+        <h2><span class="chip">1</span> درس أجهزة الحاسب</h2>
+
+        <h3>السؤال الأول: صح أو خطأ</h3>
+        <ol class="list">
+          <li>الحاسب: جهاز إلكتروني يتبع تعليمات محددة لاتخاذ القرارات .صح</li>
+          <li>لأجهزة الحاسب نوعين اثنين فقط .خطأ</li>
+          <li>من أنواع أجهزة الحاسب )الحاسبات المكتبية( .صح</li>
+          <li>الحاسبات اللوحية لها لوحة مفاتيح .خطأ</li>
+          <li>لوحة اللمس توجد في الحاسبات المحمولة وبعض الأجهزة الأخرى .صح</li>
+          <li>من أدوات الحاسب التفاعلية )قفازات الواقع الافتراضي( .صح</li>
+        </ol>
+
+        <h3>السؤال الثاني: ضع الكلمة في المكان الصحيح</h3>
+        <ol class="list">
+          <li>يستخدم لوح الرسم بكثرة من قبل المصممين والرسامين.</li>
+          <li>كرة التتبع تشبه الفأرة المقلوبة ولها كرة كبيرة.</li>
+          <li>من أنواع أجهزة الحاسب الهواتف الذكية.</li>
+          <li>من أدوات الحاسب التفاعلية شاشة اللمس.</li>
+        </ol>
+
+        <h3>السؤال الثالث: وصل بالأرقام</h3>
+        <p class="note">(مطابقة العناصر حسب الأرقام في الورقة المرفقة)</p>
+      </section>
+
+      <!-- 2 -->
+      <section class="card">
+        <h2><span class="chip">2</span> درس أجزاء الحاسب</h2>
+
+        <h3>السؤال الأول: صح أو خطأ</h3>
+        <ol class="list">
+          <li>من أجزاء الحاسب الرئيسية اللوحة الأم وتتصل بها جميع أجهزة الحاسب .صح</li>
+          <li>من أجهزة الإخراج )لوحة المفاتيح( .خطأ</li>
+          <li>من أجهزة الإدخال )الفأرة( .صح</li>
+          <li>من أجهزة التخزين الخارجية )وحدة الذاكرة الفلاشية( .صح</li>
+          <li>طابعة الليزر أرخص من الطابعة النافثة للحبر .خطأ</li>
+          <li>وحدة المعالجة المركزية هي )عقل( الحاسب .صح</li>
+        </ol>
+
+        <h3>السؤال الثاني: ضع الكلمة في المكان الصحيح</h3>
+        <ol class="list">
+          <li>تستخدم لوحة المفاتيح لإدخال النصوص للحاسب.</li>
+          <li>ذاكرة الوصول العشوائي RAM تعتبر ذاكرة تخزين مؤقتة.</li>
+          <li>اللوحة الأم تتصل بجميع أجزاء الحاسب.</li>
+          <li>الجهاز الذي ينقل الأصوات إلى الحاسب هو الميكروفون.</li>
+        </ol>
+
+        <h3>السؤال الثالث: ضع صح تحت أجزاء الحاسب الرئيسية</h3>
+        <p class="note">(وضع علامة صح تحت الأجزاء الرئيسية في الرسم المرفق)</p>
+      </section>
+
+      <!-- 3 -->
+      <section class="card">
+        <h2><span class="chip">3</span> درس الملفات والمجلدات</h2>
+
+        <h3>السؤال الأول: صح أو خطأ</h3>
+        <ol class="list">
+          <li>حجم الملف هو الجزء الذي يشغله الملف أو المجلد من مساحة التخزين في الحاسب .صح</li>
+          <li>يفيد الاختصار في سرعة الوصول إلى الملف أو البرنامج .صح</li>
+          <li>لا نستطيع وضع الاختصار على سطح المكتب .خطأ</li>
+          <li>لحذف الاختصار نضغط عليه بزر الفأرة الأيمن ونختار )حذف( .صح</li>
+          <li>ضغط الملف يفيد في تقليل عدد الملفات .خطأ</li>
+          <li>لإعادة تسمية ملف مضغوط نضغط باليمين ونختار )إرسال إلى( .خطأ</li>
+        </ol>
+
+        <h3>السؤال الثاني: ضع الكلمة في المكان الصحيح</h3>
+        <ol class="list">
+          <li>عند حذف ملف أو مجلد فإنه يذهب إلى سلة المحذوفات.</li>
+          <li>ضغط الملف يفيد في تصغير حجمه.</li>
+          <li>يمكن تغيير طريقة عرض الملفات في المجلد من علامة تبويب عرض.</li>
+          <li>لنقل ملف أو مجلد نقوم بـ السحب والإفلات باستخدام الفأرة.</li>
+        </ol>
+
+        <h3>السؤال الثالث: ضع صح تحت الاختصار</h3>
+        <p class="note">(وضع علامة صح تحت الاختصارات الصحيحة في الصور المرفقة)</p>
+
+        <h3>السؤال الرابع: تطبيق عملي</h3>
+        <p>افتح مجلد الصور في جهازك وأنشئ اختصار لصورة على سطح المكتب.</p>
+      </section>
+
+      <!-- 4 -->
+      <section class="card">
+        <h2><span class="chip">4</span> درس الصور والرسومات في الوورد</h2>
+
+        <h3>السؤال الأول: صح أو خطأ</h3>
+        <ol class="list">
+          <li>في برنامج الوورد نستطيع إدراج الصور من الجهاز فقط .خطأ</li>
+          <li>لإدراج الصور في الوورد نذهب إلى تبويب )إدراج( ثم نختار )صورة( .صح</li>
+          <li>لتعديل الصور نضغط على الصورة ثم نختار )تنسيق الصورة( .صح</li>
+          <li>يوجد في برنامج الوورد مجموعة من الأشكال والرسومات الجاهزة .صح</li>
+          <li>لا نستطيع كتابة نصوص داخل الأشكال والرسومات .خطأ</li>
+          <li>يفيد إدراج الصور والأشكال والرسومات في جعل المستند أكثر جاذبية .صح</li>
+          <li>بعد إدراج الصور في الوورد لا نستطيع التعديل عليها .خطأ</li>
+        </ol>
+
+        <h3>السؤال الثاني: وصل بالأرقام</h3>
+        <ul class="list">
+          <li>→ 1إدراج صورة</li>
+          <li>→ 2تعديل الصورة</li>
+          <li>→ 3إدراج شكل</li>
+        </ul>
+
+        <h3>السؤال الثالث: تطبيق عملي</h3>
+        <p>قم بتصميم وكتابة النص المعطى في الوورد، مع إضافة صورة من اختيارك.</p>
+      </section>
+
+      <!-- 5 -->
+      <section class="card">
+        <h2><span class="chip">5</span> درس التنسيق المتقدم في الوورد</h2>
+
+        <h3>السؤال الأول: صح أو خطأ</h3>
+        <ol class="list">
+          <li>لحذف الكلمات والجمل في الوورد نستخدم زري Delete أو Backspace. صح</li>
+          <li>زر (Delete) يحذف الكلمات التالية وزر (Backspace) يحذف الكلمات السابقة .صح</li>
+          <li>نستخدم زر Lock Caps لكتابة الأحرف الإنجليزية الكبيرة .صح</li>
+          <li>لتغيير المسافة بين الأسطر نذهب لتبويب )الشريط الرئيسي( مجموعة )فقرة( .صح</li>
+          <li>المسافة البادئة تعني المسافة بين الأسطر .خطأ</li>
+          <li>لا نستطيع زيادة المسافة أو تقليلها بين أحرف الكلمة .خطأ</li>
+        </ol>
+
+        <h3>السؤال الثاني: ضع الكلمة في المكان الصحيح</h3>
+        <ol class="list">
+          <li>لنبدأ فقرة جديدة نضغط على زر Enter.</li>
+          <li>إذا رغبت في عدم إكمال السطر ومتابعة النص في سطر جديد في نفس الفقرة اضغط Shift+Enter.</li>
+          <li>تستخدم الأحرف غير القابلة للطباعة في إصلاح التخطيط والمظهر في المستند.</li>
+          <li>المسافة البادئة هي المسافة بين الفقرة و الهامش الأيمن أو الأيسر.</li>
+        </ol>
+
+        <h3>السؤال الثالث: صل الحل بالأرقام</h3>
+        <p class="note">(مطابقة الرموز رقمياً حسب الرسم المرفق)</p>
+
+        <h3>السؤال الرابع: تطبيق عملي</h3>
+        <p>افتح الوورد واكتب ثلاث فقرات، لا تقل كل فقرة عن سطرين، مع تطبيق مهارات تنسيق الفقرات وتباعد الأسطر والمسافة البادئة.</p>
+      </section>
+
+      <!-- 6 -->
+      <section class="card">
+        <h2><span class="chip">6</span> درس إدراج الرسومات التوضيحية(SmartArt)</h2>
+
+        <h3>السؤال الأول: صح أو خطأ</h3>
+        <ol class="list">
+          <li>تستخدم الرسومات التوضيحية SmartArt لعرض المعلومات بشكل أوضح داخل المستند .صح</li>
+          <li>لا نستطيع تغيير ألوان الرسومات التوضيحية .خطأ</li>
+          <li>للرسومات التوضيحية نوع واحد فقط هو )الهرمي( .خطأ</li>
+        </ol>
+
+        <h3>السؤال الثاني: وصل بالأرقام</h3>
+        <p class="note">(مطابقة أنواع SmartArt بالصور المرفقة)</p>
+      </section>
+
+      <!-- 7 -->
+      <section class="card">
+        <h2><span class="chip">7</span> درس التدقيق والطباعة في الوورد</h2>
+
+        <h3>السؤال الأول: صح أو خطأ</h3>
+        <ol class="list">
+          <li>تسطير الكلمة باللون الأزرق يعني وجود خطأ نحوي .صح</li>
+          <li>تسطير الكلمة باللون الأحمر يعني وجود خطأ إملائي .صح</li>
+          <li>تدقيق الأخطاء يوجد في تبويب )مراجعة( قائمة )تدقيق إملائي ونحوي( .صح</li>
+          <li>للوصول إلى المرادفات بسرعة اضغط بزر الفأرة الأيمن على الكلمة واختر مرادفات .صح</li>
+          <li>أمر الطباعة موجود في تبويب )ملف( أمر )طباعة( .صح</li>
+          <li>اختصار أمر الطباعة هو Ctrl+s. خطأ</li>
+          <li>يمكن تصحيح الأخطاء الإملائية بالنقر على الكلمة يمين واختيار الكلمة الصحيحة من القائمة .صح</li>
+        </ol>
+
+        <h3>السؤال الثاني: وصل بالأرقام</h3>
+        <ul class="list">
+          <li>→ 1اختيار الطابعة</li>
+          <li>→ 2معاينة الصفحات</li>
+          <li>→ 3عدد نسخ الطباعة</li>
+          <li>→ 4تكبير وتصغير المستند</li>
+        </ul>
+
+        <h3>السؤال الثالث: تطبيق عملي</h3>
+        <ul class="list">
+          <li>افتح الوورد واذهب إلى أمر الطباعة.</li>
+          <li>حدّد الطابعة وعدد النسخ ثم اطبع صفحة معاينة.</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <p class="footer">المهارات الرقمية خامس الفصل الأول.</p>
+  </div>
+
+  <script>
+    // تبديل نوع القوائم بين مرقمة ونقطية لإتاحة طباعة مختلفة
+    function toggleLists(){
+      document.querySelectorAll('.list').forEach(list=>{
+        const isOL = list.tagName.toLowerCase()==='ol';
+        const newList = document.createElement(isOL ? 'ul' : 'ol');
+        newList.className = 'list';
+        [...list.childNodes].forEach(n=>newList.appendChild(n));
+        list.replaceWith(newList);
+      });
+    }
+  </script>
+</body>
+</html>
